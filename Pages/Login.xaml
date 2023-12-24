@@ -1,0 +1,17 @@
+﻿<Page x:Class="Smart_Irrigation_System.Pages.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="800">
+    <Grid>
+        <Label Content="Kullanıcı Adı:" VerticalAlignment="Top" Margin="10,10,0,0"/>
+        <TextBox x:Name="txtUsername" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="100,10,10,0"/>
+
+        <Label Content="Şifre:" VerticalAlignment="Top" Margin="10,50,0,0"/>
+        <PasswordBox x:Name="txtPassword" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="100,50,10,0"/>
+
+        <Button Content="Giriş Yap" VerticalAlignment="Top" HorizontalAlignment="Center" Width="100" Margin="0,90,0,0" Click="btnLogin_Click"/>
+    </Grid>
+</Page>

@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using Smart_Irrigation_System.Pages;
+using Smart_Irrigation_System.Services;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,9 +18,121 @@ namespace Smart_Irrigation_System
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Login? loginPage = null;
+        public Home? homePage = null;
+        private Products? productsPage = null;
+
         public MainWindow()
         {
             InitializeComponent();
+            this.Loaded += MainWindow_Loaded;
         }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadHomePage();
+        }
+
+        private void LoadHomePage()
+        {
+            if (homePage == null)
+            {
+                homePage = new Home();
+            }
+            mainFrame.Navigate(homePage);
+        }
+        public void UpdateUserDisplay()
+        {
+            if (AppSession.LoggedInUser != null)
+            {
+                loginButton.Visibility = Visibility.Collapsed;
+                userDropdown.Visibility = Visibility.Visible;
+                userDropdown.Items.Clear();
+                userDropdown.Items.Add(AppSession.LoggedInUser.Username);
+                userDropdown.Items.Add("Kullanıcı Değiştir");
+                userDropdown.Items.Add("Çıkış Yap");
+
+                userDropdown.SelectedIndex = 0;
+            }           
+            else
+            {
+                loginButton.Visibility = Visibility.Visible;
+                userDropdown.Visibility = Visibility.Collapsed;
+            }
+        }
+        private void NavigateToHomePage(object sender, RoutedEventArgs e)
+        {
+            if(homePage == null)
+            {
+                homePage = new Home();  
+                mainFrame.Navigate(homePage);
+            } 
+            else
+            {
+                mainFrame.Navigate(homePage);
+            }
+        }
+
+        private void NavigateToLoginPage(object sender, RoutedEventArgs e)
+        {
+            if(loginPage == null && (AppSession.LoggedInUser == null))
+            {
+                loginPage = new Login();
+                mainFrame.Navigate(loginPage);  
+            }
+            else if(loginPage !=null && AppSession.LoggedInUser == null)
+            {
+                mainFrame.Navigate(loginPage);
+            }
+        }
+
+        private void NavigateToProducts(object sender, RoutedEventArgs e)
+        {
+            if(productsPage == null)
+            {
+                productsPage = new Products();
+                mainFrame.Navigate(productsPage);
+            }
+            else
+            {
+                mainFrame.Navigate(productsPage);
+            }
+        }
+
+        private void UserDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (userDropdown.SelectedItem != null)
+            {
+                string? selectedOption = userDropdown.SelectedItem.ToString();
+                if (selectedOption != null)
+                {
+                    if (selectedOption.Equals("Kullanıcı Değiştir"))
+                    {
+                        if (MessageBox.Show("Kullanıcıyı değiştirmek istediğinize emin misiniz?", "Onay", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                        {
+                            AppSession.LoggedInUser = null;
+                            mainFrame.Navigate(loginPage);
+                        }
+                        else
+                        {
+                            userDropdown.SelectedIndex = 0;
+                        }
+                    }
+                    else if (selectedOption.Equals("Çıkış Yap"))
+                    {
+                        if (MessageBox.Show("Kullanıcıyı değiştirmek istediğinize emin misiniz?", "Onay", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                        {
+                            AppSession.LoggedInUser = null;
+                            UpdateUserDisplay();
+                        }
+                        else
+                        {
+                            userDropdown.SelectedIndex = 0;
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }
