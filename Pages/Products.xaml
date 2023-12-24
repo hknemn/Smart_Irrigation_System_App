@@ -9,7 +9,7 @@
 
     <Grid>
         <StackPanel>
-            <TextBox x:Name="searchTextBox" Width="300" Margin="0,0,0,10" TextChanged="SearchTextBox_TextChanged"/>
+            <TextBox x:Name="searchTextBox" Width="300" Margin="0,10,0,10" TextChanged="SearchTextBox_TextChanged"/>
 
             <ListView x:Name="productsListView">
                 <ListView.View>
@@ -22,7 +22,7 @@
                 </ListView.View>
             </ListView>
         </StackPanel>
-        <StackPanel Margin="0,225,0,10">
+        <StackPanel x:Name="addProduct" Margin="0,225,0,10">
             <TextBox x:Name="txtProductName" VerticalContentAlignment="Center" Text="Ürünün İsmini Giriniz" GotFocus="txtProductName_GotFocus" LostFocus="txtProductName_LostFocus" Margin="0,0,0,10" Height="30" FontSize="14" FontStyle="Italic"/>
             <TextBox x:Name="txtTemperature" VerticalContentAlignment="Center" Text="Gerekli Sıcaklık Değerini Giriniz" GotFocus="txtTemperature_GotFocus" LostFocus="txtTemperature_LostFocus" Margin="0,0,0,10" Height="30" FontSize="14" FontStyle="Italic"/>
             <TextBox x:Name="txtHumidity" VerticalContentAlignment="Center" Text="Gerekli Nem Değerini Giriniz" GotFocus="txtHumidity_GotFocus" LostFocus="txtHumidity_LostFocus" Height="30" FontSize="14" FontStyle="Italic"/>
