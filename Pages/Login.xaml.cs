@@ -61,7 +61,6 @@ namespace Smart_Irrigation_System.Pages
 
         private static bool AuthenticateUser(string username, string password)
         {
-            // Veritabanı dosyasının tam yolunu oluştur
             string databasePath = "C:/Users/hknem/source/repos/SIS_App/Smart_Irrigation_System/Databases/users.sqlite";
             string connectionString = $"Data Source={databasePath};Version=3;";
 
@@ -69,7 +68,6 @@ namespace Smart_Irrigation_System.Pages
             {
                 connection.Open();
 
-                // Kullanıcı adı ve şifre ile sorgu yap
                 string query = "SELECT * FROM users WHERE username=@username AND password=@password";
                 using (SQLiteCommand cmd = new SQLiteCommand(query, connection))
                 {

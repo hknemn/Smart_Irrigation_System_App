@@ -22,5 +22,11 @@
                 </ListView.View>
             </ListView>
         </StackPanel>
+        <StackPanel Margin="0,225,0,10">
+            <TextBox x:Name="txtProductName" VerticalContentAlignment="Center" Text="Ürünün İsmini Giriniz" GotFocus="txtProductName_GotFocus" LostFocus="txtProductName_LostFocus" Margin="0,0,0,10" Height="30" FontSize="14" FontStyle="Italic"/>
+            <TextBox x:Name="txtTemperature" VerticalContentAlignment="Center" Text="Gerekli Sıcaklık Değerini Giriniz" GotFocus="txtTemperature_GotFocus" LostFocus="txtTemperature_LostFocus" Margin="0,0,0,10" Height="30" FontSize="14" FontStyle="Italic"/>
+            <TextBox x:Name="txtHumidity" VerticalContentAlignment="Center" Text="Gerekli Nem Değerini Giriniz" GotFocus="txtHumidity_GotFocus" LostFocus="txtHumidity_LostFocus" Height="30" FontSize="14" FontStyle="Italic"/>
+            <Button Content="Ürün Ekle" Click="AddProduct_Click" Width="100" Height="40"/>
+        </StackPanel>
     </Grid>
 </Page>
