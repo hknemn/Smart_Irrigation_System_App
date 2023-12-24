@@ -49,7 +49,6 @@ namespace Smart_Irrigation_System
                 userDropdown.Visibility = Visibility.Visible;
                 userDropdown.Items.Clear();
                 userDropdown.Items.Add(AppSession.LoggedInUser.Username);
-                userDropdown.Items.Add("Kullanıcı Değiştir");
                 userDropdown.Items.Add("Çıkış Yap");
 
                 userDropdown.SelectedIndex = 0;
@@ -106,24 +105,13 @@ namespace Smart_Irrigation_System
                 string? selectedOption = userDropdown.SelectedItem.ToString();
                 if (selectedOption != null)
                 {
-                    if (selectedOption.Equals("Kullanıcı Değiştir"))
+                    if (selectedOption.Equals("Çıkış Yap"))
                     {
-                        if (MessageBox.Show("Kullanıcıyı değiştirmek istediğinize emin misiniz?", "Onay", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-                        {
-                            AppSession.LoggedInUser = null;
-                            mainFrame.Navigate(loginPage);
-                        }
-                        else
-                        {
-                            userDropdown.SelectedIndex = 0;
-                        }
-                    }
-                    else if (selectedOption.Equals("Çıkış Yap"))
-                    {
-                        if (MessageBox.Show("Kullanıcıyı değiştirmek istediğinize emin misiniz?", "Onay", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                        if (MessageBox.Show("Çıkış yapmak istediğinizden emin misiniz?", "Onay", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                         {
                             AppSession.LoggedInUser = null;
                             UpdateUserDisplay();
+                            mainFrame.Navigate(homePage);
                         }
                         else
                         {

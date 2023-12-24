@@ -8,6 +8,6 @@
       Title="Home">
 
     <Grid>
-        <Label Content="home page" VerticalAlignment="Top" Margin="5,33,5,0"/>
+        <Label Content="home page" VerticalAlignment="Top"/>
     </Grid>
 </Page>

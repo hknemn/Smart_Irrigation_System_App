@@ -48,6 +48,7 @@ namespace Smart_Irrigation_System.Pages
                     }
                     mainWnd.mainFrame.Navigate(mainWnd.homePage);
                     mainWnd.UpdateUserDisplay();
+                    txtUsername.Text = "";
                 }
             }
             else
@@ -58,7 +59,7 @@ namespace Smart_Irrigation_System.Pages
             }
         }
 
-        private bool AuthenticateUser(string username, string password)
+        private static bool AuthenticateUser(string username, string password)
         {
             // Veritabanı dosyasının tam yolunu oluştur
             string databasePath = "C:/Users/hknem/source/repos/SIS_App/Smart_Irrigation_System/Databases/users.sqlite";

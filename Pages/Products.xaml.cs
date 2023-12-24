@@ -23,6 +23,8 @@ namespace Smart_Irrigation_System.Pages
     /// </summary>
     public partial class Products : Page
     {
+        private ObservableCollection<Product>? allProducts;
+
         public Products()
         {
             InitializeComponent();
@@ -33,7 +35,7 @@ namespace Smart_Irrigation_System.Pages
             string databasePath = "C:/Users/hknem/source/repos/SIS_App/Smart_Irrigation_System/Databases/products.sqlite";
             string connectionString = $"Data Source={databasePath};Version=3;";
 
-            ObservableCollection<Product> productList = new ObservableCollection<Product>();
+            allProducts = new ObservableCollection<Product>();
 
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
@@ -48,15 +50,33 @@ namespace Smart_Irrigation_System.Pages
                         {
                             int id = reader.GetInt32(0);
                             string name = reader.GetString(1);
-                            double temperature = reader.GetDouble(2);
-                            double humidity = reader.GetDouble(3);
+                            double temperature = reader.GetInt32(2);
+                            double humidity = reader.GetInt32(3);
 
-                            productList.Add(new Product { Id = id, Name = name, Temperature = temperature, Humidity = humidity });
+                            allProducts.Add(new Product { Id = id, Name = name, Temperature = temperature, Humidity = humidity });
                         }
                     }
                 }
             }
-            productsListView.ItemsSource = productList;
+            productsListView.ItemsSource = allProducts;
+        }
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchText = searchTextBox.Text.ToLower();
+
+            ObservableCollection<Product> filteredProducts = new ObservableCollection<Product>();
+
+            if(allProducts != null)
+            {
+                foreach (var product in allProducts)
+                {
+                    if (product.Name.ToLower().Contains(searchText))
+                    {
+                        filteredProducts.Add(product);
+                    }
+                }
+            }
+            productsListView.ItemsSource = filteredProducts;
         }
     }
 }
