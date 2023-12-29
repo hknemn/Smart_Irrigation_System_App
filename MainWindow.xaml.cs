@@ -13,20 +13,19 @@ using System.Windows.Shapes;
 
 namespace Smart_Irrigation_System
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private Login? loginPage = null;
         public Home? homePage = null;
         private Products? productsPage = null;
         private InstantData? instantDataPage = null;
+        public static Frame? MainFrame { get; private set; }
 
         public MainWindow()
         {
             InitializeComponent();
             this.Loaded += MainWindow_Loaded;
+            MainFrame = mainFrame;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
