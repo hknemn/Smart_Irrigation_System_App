@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Smart_Irrigation_System.Pages
 {
-    /// <summary>
-    /// Interaction logic for InstantData.xaml
-    /// </summary>
     public partial class InstantData : Page
     {
         public InstantData()
