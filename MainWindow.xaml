@@ -4,11 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="1000">
+        Title="MainWindow" Height="750" Width="1250">
     <Grid>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Background="LightGray" Height="45">
             <Button Content="Anasayfa" Click="NavigateToHomePage" Width="100"/>
             <Button Content="Ürünler" Click="NavigateToProducts" Width="100"/>
+            <Button Content="Anlık Veri" Click="NavigateToInstantData" Width="100"/>
             <Button x:Name="loginButton" Content="Giriş Yap" Click="NavigateToLoginPage" Width="100"/>
             <ComboBox x:Name="userDropdown" Width="150" Height="45" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" SelectionChanged="UserDropdown_SelectionChanged" FontSize="16" Visibility="Collapsed">
                 <ComboBox.ItemContainerStyle>

@@ -1,4 +1,5 @@
 ﻿using Smart_Irrigation_System.Models;
+using Smart_Irrigation_System.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,13 +25,15 @@ namespace Smart_Irrigation_System.Pages
     public partial class Products : Page
     {
         private ObservableCollection<Product>? allProducts;
+        private CreateProduct? createProductPage = null;
+        private MainWindow mainWindow  = new MainWindow();
 
         public Products()
         {
             InitializeComponent();
             LoadProducts();
         }
-        private void LoadProducts()
+        public void LoadProducts()
         {
             string databasePath = "C:/Users/hknem/source/repos/SIS_App/Smart_Irrigation_System/Databases/products.sqlite";
             string connectionString = $"Data Source={databasePath};Version=3;";
@@ -41,7 +44,7 @@ namespace Smart_Irrigation_System.Pages
             {
                 connection.Open();
 
-                string query = "SELECT id, name, temperature, humidity FROM Products";
+                string query = "SELECT id, name, min_temperature, max_temperature, min_humidity, max_humidity FROM Products";
                 using (SQLiteCommand cmd = new SQLiteCommand(query, connection))
                 {
                     using (SQLiteDataReader reader = cmd.ExecuteReader())
@@ -50,10 +53,12 @@ namespace Smart_Irrigation_System.Pages
                         {
                             int id = reader.GetInt32(0);
                             string name = reader.GetString(1);
-                            double temperature = reader.GetInt32(2);
-                            double humidity = reader.GetInt32(3);
+                            double min_temperature = reader.GetInt32(2);
+                            double max_temperature = reader.GetInt32(3);
+                            double min_humidity = reader.GetInt32(4);
+                            double max_humidity = reader.GetInt32(5);
 
-                            allProducts.Add(new Product { Id = id, Name = name, Temperature = temperature, Humidity = humidity });
+                            allProducts.Add(new Product { Id = id, Name = name, Min_Temperature = min_temperature, Max_Temperature = max_temperature, Min_Humidity = min_humidity, Max_Humidity = max_humidity });
                         }
                     }
                 }
@@ -79,104 +84,24 @@ namespace Smart_Irrigation_System.Pages
             productsListView.ItemsSource = filteredProducts;
         }
 
-        private void AddProduct_Click(object sender, RoutedEventArgs e)
+        private void createProductButton_Click(object sender, RoutedEventArgs e)
         {
-            string name = txtProductName.Text;
-            string temperatureStr = txtTemperature.Text;
-            string humidityStr = txtHumidity.Text;
-
-            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(temperatureStr) || string.IsNullOrWhiteSpace(humidityStr))
+            if(AppSession.LoggedInUser == null)
             {
-                MessageBox.Show("Lütfen tüm alanları doldurun!");
-                return;
+                MessageBox.Show("Önce giriş yapmalısınız!");
             }
-
-            if (!double.TryParse(temperatureStr, out double temperature) || !double.TryParse(humidityStr, out double humidity))
+            else
             {
-                MessageBox.Show("Sıcaklık ve Nem değerleri sayı olmalıdır!");
-                return;
-            }
-
-            string databasePath = "C:/Users/hknem/source/repos/SIS_App/Smart_Irrigation_System/Databases/products.sqlite";
-            string connectionString = $"Data Source={databasePath};Version=3;";
-
-            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
-            {
-                connection.Open();
-
-                string query = "INSERT INTO Products (name, temperature, humidity) VALUES (@name, @temperature, @humidity)";
-                using (SQLiteCommand cmd = new SQLiteCommand(query, connection))
+                if(createProductPage == null)
                 {
-                    cmd.Parameters.AddWithValue("@name", name);
-                    cmd.Parameters.AddWithValue("@temperature", temperature);
-                    cmd.Parameters.AddWithValue("@humidity", humidity);
-
-                    int result = cmd.ExecuteNonQuery();
-                    if (result > 0)
-                    {
-                        MessageBox.Show("Ürün başarıyla eklendi!");
-                        LoadProducts();
-                        txtProductName.Text = "";
-                        txtTemperature.Text = "";
-                        txtHumidity.Text = "";
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ürün eklenirken bir hata oluştu!");
-                        txtProductName.Text = "";
-                        txtTemperature.Text = "";
-                        txtHumidity.Text = "";
-                    }
+                    createProductPage = new CreateProduct();
+                    NavigationService.GetNavigationService(this).Navigate(createProductPage);
+                } 
+                else
+                {
+                    NavigationService.GetNavigationService(this).Navigate(createProductPage);
                 }
             }
         }
-        private void txtProductName_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (txtProductName.Text == "Ürünün İsmini Giriniz")
-            {
-                txtProductName.Text = "";
-            }
-        }
-
-        private void txtProductName_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtProductName.Text))
-            {
-                txtProductName.Text = "Ürünün İsmini Giriniz";
-            }
-        }
-
-        private void txtTemperature_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (txtTemperature.Text == "Gerekli Sıcaklık Değerini Giriniz")
-            {
-                txtTemperature.Text = "";
-            }
-        }
-
-        private void txtTemperature_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtTemperature.Text))
-            {
-                txtTemperature.Text = "Gerekli Sıcaklık Değerini Giriniz";
-            }
-        }
-
-        private void txtHumidity_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (txtHumidity.Text == "Gerekli Nem Değerini Giriniz")
-            {
-                txtHumidity.Text = "";
-            }
-        }
-
-        private void txtHumidity_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtHumidity.Text))
-            {
-                txtHumidity.Text = "Gerekli Nem Değerini Giriniz";
-            }
-        }
-
     }
 }
