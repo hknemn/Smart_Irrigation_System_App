@@ -16,14 +16,18 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LiveCharts;
 using LiveCharts.Wpf;
+using Smart_Irrigation_System.Gauges;
 
 namespace Smart_Irrigation_System.Pages
 {
     public partial class LiveData : Page
     {
+        private ViewModel.LiveData? liveData;
         public LiveData()
         {
             InitializeComponent();
+            liveData = new ViewModel.LiveData();
+            this.DataContext = liveData;
         }
 
         private void liveWeather_Click(object sender, RoutedEventArgs e)
@@ -36,7 +40,11 @@ namespace Smart_Irrigation_System.Pages
         {
             liveWeatherPanel.Visibility = Visibility.Collapsed;
             liveSensorPanel.Visibility = Visibility.Visible;
+            updateSensorGauge();
+        }
 
+        private void updateSensorGauge()
+        {
             string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/live_humidity.sqlite";
             //string databasePath = "R:/Smart_Agriculture/live_humidity.sqlite";      
             string connectionString = $"Data Source={databasePath};Version=3;";
@@ -54,6 +62,10 @@ namespace Smart_Irrigation_System.Pages
                     {
                         string name = reader.GetString(0);
                         double humidity = reader.GetInt32(1);
+                        if (liveData != null)
+                        {
+                            liveData.HumidityValue = humidity;
+                        }
                     }
                 }
                 connection.Close();

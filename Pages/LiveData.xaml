@@ -25,7 +25,7 @@
             <TextBlock Text="ANLIK HAVA DURUMU"  HorizontalAlignment="Center" FontSize="14"/>
             <Button Content="Kapat" Click="CloseButton_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0"/>
         </StackPanel>
-        <StackPanel x:Name="liveSensorPanel" Grid.Column="1" Orientation="Vertical" Visibility="Visible">
+        <StackPanel x:Name="liveSensorPanel" Grid.Column="1" Orientation="Vertical" Visibility="Collapsed">
             <TextBlock Text="ANLIK NEM DEĞERİ"  HorizontalAlignment="Center" FontSize="14"/>
             <Button Content="Kapat" Click="CloseButton_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0"/>
             <gauges:Gauge360 Width="400" Height="300"/>

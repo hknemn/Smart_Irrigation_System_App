@@ -7,14 +7,14 @@
              xmlns:gauges="clr-namespace:Smart_Irrigation_System.Gauges"
              xmlns:local="clr-namespace:Smart_Irrigation_System.Gauges"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance gauges:Gauge360}">
+             d:DesignHeight="300" d:DesignWidth="400" d:DataContext="{d:DesignInstance gauges:Gauge360}">
     <Grid>
-        <lvc:Gauge From="0" To="100" Value="50" LabelsVisibility="Collapsed">
+        <lvc:Gauge x:Name="gaugeSensor" Value="{Binding HumidityValue}" From="0" To="100">
             <lvc:Gauge.GaugeActiveFill>
                 <LinearGradientBrush>
-                    <GradientStop Color="Yellow" Offset="0.0" />
-                    <GradientStop Color="Orange" Offset="0.5" />
-                    <GradientStop Color="Red" Offset="1.0" />
+                    <GradientStop Color="LightBlue" Offset="0.0" />
+                    <GradientStop Color="Blue" Offset="0.5" />
+                    <GradientStop Color="DarkBlue" Offset="1.0" />
                 </LinearGradientBrush>
             </lvc:Gauge.GaugeActiveFill>
         </lvc:Gauge>
