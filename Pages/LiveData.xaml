@@ -5,13 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Smart_Irrigation_System.Pages"
       xmlns:model="clr-namespace:Smart_Irrigation_System.Models"
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      xmlns:gauges="clr-namespace:Smart_Irrigation_System.Gauges"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="LiveData">
-
-    <Page.DataContext>
-        <model:LiveDataView/>
-    </Page.DataContext>
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -20,8 +18,8 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="0" Orientation="Vertical" Background="LightGray">
-            <Button x:Name="liveWeather" Content="Hava Durumu" FontSize="14" Click="liveWeather_Click"/>
-            <Button x:Name="liveSensor" Content="Nem Değeri" FontSize="14" Click="liveSensor_Click"/>
+            <Button x:Name="liveWeather" Content="Hava Durumu" FontSize="14" Click="liveWeather_Click" Height="50"/>
+            <Button x:Name="liveSensor" Content="Nem Değeri" FontSize="14" Click="liveSensor_Click" Height="50"/>
         </StackPanel>
         <StackPanel x:Name="liveWeatherPanel" Grid.Column="1" Orientation="Vertical" Visibility="Collapsed">
             <TextBlock Text="ANLIK HAVA DURUMU"  HorizontalAlignment="Center" FontSize="14"/>
@@ -30,6 +28,7 @@
         <StackPanel x:Name="liveSensorPanel" Grid.Column="1" Orientation="Vertical" Visibility="Visible">
             <TextBlock Text="ANLIK NEM DEĞERİ"  HorizontalAlignment="Center" FontSize="14"/>
             <Button Content="Kapat" Click="CloseButton_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0"/>
+            <gauges:Gauge360 Width="400" Height="300"/>
         </StackPanel>
     </Grid>
 </Page>
