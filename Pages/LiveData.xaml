@@ -29,6 +29,7 @@
             <TextBlock Text="ANLIK NEM DEĞERİ"  HorizontalAlignment="Center" FontSize="14"/>
             <Button Content="Kapat" Click="CloseButton_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0"/>
             <gauges:Gauge360 Width="400" Height="300"/>
+            <TextBlock x:Name="productName" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </StackPanel>
     </Grid>
 </Page>

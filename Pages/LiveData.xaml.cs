@@ -66,6 +66,7 @@ namespace Smart_Irrigation_System.Pages
                         {
                             liveData.HumidityValue = humidity;
                         }
+                        productName.Text = reader.GetString(0);
                     }
                 }
                 connection.Close();
