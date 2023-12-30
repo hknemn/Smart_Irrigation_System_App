@@ -18,7 +18,8 @@ namespace Smart_Irrigation_System
         private Login? loginPage = null;
         public Home? homePage = null;
         private Products? productsPage = null;
-        private InstantData? instantDataPage = null;
+        private LiveData? liveDataPage = null;
+        private Reports? reportsPage = null;
         public static Frame? MainFrame { get; private set; }
 
         public MainWindow()
@@ -111,16 +112,29 @@ namespace Smart_Irrigation_System
             }
         }
 
-        private void NavigateToInstantData(object sender, RoutedEventArgs e)
+        private void NavigateToLiveData(object sender, RoutedEventArgs e)
         {
-            if(instantDataPage == null)
+            if(liveDataPage == null)
             {
-                instantDataPage = new InstantData();
-                mainFrame.Navigate(instantDataPage);
+                liveDataPage = new LiveData();
+                mainFrame.Navigate(liveDataPage);
             }
             else
             {
-                mainFrame.Navigate(instantDataPage);
+                mainFrame.Navigate(liveDataPage);
+            }
+        }
+
+        private void NavigateToReports(object sender, RoutedEventArgs e)
+        {
+            if (reportsPage == null)
+            {
+                reportsPage = new Reports();
+                mainFrame.Navigate(reportsPage);
+            }
+            else
+            {
+                mainFrame.Navigate(reportsPage);
             }
         }
 
