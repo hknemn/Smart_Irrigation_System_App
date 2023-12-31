@@ -34,6 +34,7 @@ namespace Smart_Irrigation_System.Pages
         {
             liveSensorPanel.Visibility = Visibility.Collapsed;
             liveWeatherPanel.Visibility = Visibility.Visible;
+            updateWeatherGauge();
         }
 
         private void liveSensor_Click(object sender, RoutedEventArgs e)
@@ -61,12 +62,49 @@ namespace Smart_Irrigation_System.Pages
                     while (reader.Read())
                     {
                         string name = reader.GetString(0);
-                        double humidity = reader.GetInt32(1);
+                        double humidity = reader.GetDouble(1);
                         if (liveData != null)
                         {
                             liveData.HumidityValue = humidity;
                         }
                         productName.Text = reader.GetString(0);
+                    }
+                }
+                connection.Close();
+            }
+        }
+
+        private void updateWeatherGauge()
+        {
+            string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/weathers.sqlite";
+            //string databasePath = "R:/Smart_Agriculture/weathers.sqlite";      
+            string connectionString = $"Data Source={databasePath};Version=3;";
+
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT city_name, humidity, temperature, description, date FROM weathers";
+                SQLiteCommand command = new SQLiteCommand(query, connection);
+
+                using (SQLiteDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string city_name = reader.GetString(0);
+                        double humidity = reader.GetDouble(1);
+                        double temperature = reader.GetDouble(2);
+                        string description = reader.GetString(3);
+                        string date = reader.GetString(4);
+                        if (liveData != null)
+                        {
+                            liveData.WeatherTemperature = temperature;
+                            liveData.WeatherHumidity = humidity;
+
+                            cityNameTextBlock.Text = city_name;
+                            descriptionTextBlock.Text = description;
+                            dateTextBlock.Text = date;
+                        }
                     }
                 }
                 connection.Close();

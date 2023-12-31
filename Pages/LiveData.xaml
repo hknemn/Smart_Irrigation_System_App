@@ -21,15 +21,66 @@
             <Button x:Name="liveWeather" Content="Hava Durumu" FontSize="14" Click="liveWeather_Click" Height="50"/>
             <Button x:Name="liveSensor" Content="Nem Değeri" FontSize="14" Click="liveSensor_Click" Height="50"/>
         </StackPanel>
-        <StackPanel x:Name="liveWeatherPanel" Grid.Column="1" Orientation="Vertical" Visibility="Collapsed">
+        <StackPanel x:Name="liveWeatherPanel" Grid.Column="1" Orientation="Vertical" Visibility="Visible" Margin="0">
             <TextBlock Text="ANLIK HAVA DURUMU"  HorizontalAlignment="Center" FontSize="14"/>
             <Button Content="Kapat" Click="CloseButton_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0"/>
+            
+            <TextBlock Text="Şehir Adı: " HorizontalAlignment="Left" FontSize="14" FontWeight="Bold"/>
+            <TextBlock x:Name="cityNameTextBlock" HorizontalAlignment="Left" FontSize="14"/>
+
+            <TextBlock Text="Açıklama: " HorizontalAlignment="Left" FontSize="14" FontWeight="Bold"/>
+            <TextBlock x:Name="descriptionTextBlock" HorizontalAlignment="Left" FontSize="14"/>
+
+            <TextBlock Text="Tarih: " HorizontalAlignment="Left" FontSize="14" FontWeight="Bold"/>
+            <TextBlock x:Name="dateTextBlock" HorizontalAlignment="Left" FontSize="14"/>
+            
+            <Grid Width="600" Height="400">
+                <StackPanel HorizontalAlignment="Left" Width="300">
+                    <gauges:Gauge360>
+                        <lvc:Gauge From="0" To="50" Value="{Binding WeatherTemperature}" Height="300" Width="290">
+                            <lvc:Gauge.GaugeActiveFill>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="Yellow" Offset="0.0" />
+                                    <GradientStop Color="Orange" Offset="0.5" />
+                                    <GradientStop Color="Red" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </lvc:Gauge.GaugeActiveFill>
+                        </lvc:Gauge>
+                    </gauges:Gauge360>
+                    <TextBlock Text="SICAKLIK (°C)" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="-50" FontSize="20"/>
+                </StackPanel>
+
+                <StackPanel HorizontalAlignment="Right" Width="300" Margin="0">
+                    <gauges:Gauge360>
+                        <lvc:Gauge From="0" To="100" Value="{Binding WeatherHumidity}" Width="290" Height="300">
+                            <lvc:Gauge.GaugeActiveFill>
+                                <LinearGradientBrush>
+                                    <GradientStop Color="DeepSkyBlue" Offset="0.0" />
+                                    <GradientStop Color="CornflowerBlue" Offset="0.5" />
+                                    <GradientStop Color="CadetBlue" Offset="1.0" />
+                                </LinearGradientBrush>
+                            </lvc:Gauge.GaugeActiveFill>
+                        </lvc:Gauge>
+                    </gauges:Gauge360>
+                    <TextBlock Text="NEM %" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="-50" FontSize="20"/>
+                </StackPanel>
+            </Grid>
         </StackPanel>
         <StackPanel x:Name="liveSensorPanel" Grid.Column="1" Orientation="Vertical" Visibility="Collapsed">
             <TextBlock Text="ANLIK NEM DEĞERİ"  HorizontalAlignment="Center" FontSize="14"/>
             <Button Content="Kapat" Click="CloseButton_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0"/>
-            <gauges:Gauge360 Width="400" Height="300"/>
-            <TextBlock x:Name="productName" FontSize="32" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <gauges:Gauge360>
+                <lvc:Gauge From="0" To="100" Value="{Binding HumidityValue}" Width="290" Height="300">
+                    <lvc:Gauge.GaugeActiveFill>
+                        <LinearGradientBrush>
+                            <GradientStop Color="DeepSkyBlue" Offset="0.0" />
+                            <GradientStop Color="CornflowerBlue" Offset="0.5" />
+                            <GradientStop Color="CadetBlue" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </lvc:Gauge.GaugeActiveFill>
+                </lvc:Gauge>
+            </gauges:Gauge360>
+            <TextBlock x:Name="productName" FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         </StackPanel>
     </Grid>
 </Page>

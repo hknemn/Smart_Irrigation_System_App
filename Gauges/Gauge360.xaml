@@ -9,14 +9,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="400" d:DataContext="{d:DesignInstance gauges:Gauge360}">
     <Grid>
-        <lvc:Gauge x:Name="gaugeSensor" Value="{Binding HumidityValue}" From="0" To="100">
-            <lvc:Gauge.GaugeActiveFill>
-                <LinearGradientBrush>
-                    <GradientStop Color="LightBlue" Offset="0.0" />
-                    <GradientStop Color="Blue" Offset="0.5" />
-                    <GradientStop Color="DarkBlue" Offset="1.0" />
-                </LinearGradientBrush>
-            </lvc:Gauge.GaugeActiveFill>
-        </lvc:Gauge>
+        <lvc:Gauge/>
     </Grid>
 </UserControl>

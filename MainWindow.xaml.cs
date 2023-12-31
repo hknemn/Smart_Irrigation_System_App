@@ -20,6 +20,7 @@ namespace Smart_Irrigation_System
         private Products? productsPage = null;
         private LiveData? liveDataPage = null;
         private Reports? reportsPage = null;
+        private SensorConfigure? sensorConfigurePage = null;
         public static Frame? MainFrame { get; private set; }
 
         public MainWindow()
@@ -137,7 +138,18 @@ namespace Smart_Irrigation_System
                 mainFrame.Navigate(reportsPage);
             }
         }
-
+        private void NavigateToSensorConfigure(object sender, RoutedEventArgs e)
+        {
+            if (sensorConfigurePage == null)
+            {
+                sensorConfigurePage = new SensorConfigure();
+                mainFrame.Navigate(sensorConfigurePage);
+            }
+            else
+            {
+                mainFrame.Navigate(sensorConfigurePage);
+            }
+        }
         private void UserDropdown_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (userDropdown.SelectedItem != null)
