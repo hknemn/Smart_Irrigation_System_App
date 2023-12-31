@@ -34,8 +34,8 @@ namespace Smart_Irrigation_System.Pages
         }
         private void LoadProductNames()
         {
-            string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/products.sqlite";
-            //string databasePath = "R:/Smart_Agriculture/products.sqlite";      
+            //string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/products.sqlite";
+            string databasePath = "R:/Smart_Agriculture/products.sqlite";      
             string connectionString = $"Data Source={databasePath};Version=3;";
 
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
@@ -70,8 +70,8 @@ namespace Smart_Irrigation_System.Pages
                 string? selectedProductName = productNameComboBox.SelectedItem.ToString();
                 string cityName = cityNameTextBox.Text;
 
-                string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/selected_items.sqlite";
-                //string databasePath = "R:/Smart_Agriculture/selected_items.sqlite";      
+                //string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/selected_items.sqlite";
+                string databasePath = "R:/Smart_Agriculture/selected_items.sqlite";      
                 string connectionString = $"Data Source={databasePath};Version=3;";
 
                 using (SQLiteConnection connection = new SQLiteConnection(connectionString))

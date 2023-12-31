@@ -31,8 +31,8 @@ namespace Smart_Irrigation_System.Pages
         }
         public void LoadProducts()
         {
-            string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/products.sqlite";
-            //string databasePath = "R:/Smart_Agriculture/products.sqlite";      
+            //string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/products.sqlite";
+            string databasePath = "R:/Smart_Agriculture/products.sqlite";      
             string connectionString = $"Data Source={databasePath};Version=3;";
 
             allProducts = new ObservableCollection<Product>();
@@ -135,8 +135,8 @@ namespace Smart_Irrigation_System.Pages
                 return;
             }
 
-            string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/products.sqlite";
-            //string databasePath = "R:/Smart_Agriculture/products.sqlite";
+            //string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/products.sqlite";
+            string databasePath = "R:/Smart_Agriculture/products.sqlite";
             string connectionString = $"Data Source={databasePath};Version=3;";
 
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
@@ -214,8 +214,8 @@ namespace Smart_Irrigation_System.Pages
 
         public void DeleteProduct(int productId)
         {
-            string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/products.sqlite";
-            //string databasePath = "R:/Smart_Agriculture/products.sqlite";
+            //string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/products.sqlite";
+            string databasePath = "R:/Smart_Agriculture/products.sqlite";
             string connectionString = $"Data Source={databasePath};Version=3;";
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {
@@ -242,8 +242,8 @@ namespace Smart_Irrigation_System.Pages
         }
         public void UpdateProduct(Product updatedProduct)
         {
-            string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/products.sqlite";
-            //string databasePath = "R:/Smart_Agriculture/products.sqlite";
+            //string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/products.sqlite";
+            string databasePath = "R:/Smart_Agriculture/products.sqlite";
             string connectionString = $"Data Source={databasePath};Version=3;";
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {

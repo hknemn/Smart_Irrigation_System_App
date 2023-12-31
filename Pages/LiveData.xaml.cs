@@ -46,8 +46,8 @@ namespace Smart_Irrigation_System.Pages
 
         private void updateSensorGauge()
         {
-            string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/live_humidity.sqlite";
-            //string databasePath = "R:/Smart_Agriculture/live_humidity.sqlite";      
+            //string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/live_humidity.sqlite";
+            string databasePath = "R:/Smart_Agriculture/live_humidity.sqlite";      
             string connectionString = $"Data Source={databasePath};Version=3;";
 
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
@@ -67,7 +67,7 @@ namespace Smart_Irrigation_System.Pages
                         {
                             liveData.HumidityValue = humidity;
                         }
-                        productName.Text = reader.GetString(0);
+                        productName.Text = reader.GetString(0).ToUpper();
                     }
                 }
                 connection.Close();
@@ -76,8 +76,8 @@ namespace Smart_Irrigation_System.Pages
 
         private void updateWeatherGauge()
         {
-            string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/weathers.sqlite";
-            //string databasePath = "R:/Smart_Agriculture/weathers.sqlite";      
+            //string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/weathers.sqlite";
+            string databasePath = "R:/Smart_Agriculture/weathers.sqlite";      
             string connectionString = $"Data Source={databasePath};Version=3;";
 
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
