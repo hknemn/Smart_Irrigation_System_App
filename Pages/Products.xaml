@@ -37,7 +37,13 @@
 
         <StackPanel x:Name="updateProduct" Grid.Column="1" Orientation="Vertical" Visibility="Collapsed">
             <TextBlock Text="ÜRÜN GÜNCELLEME"  HorizontalAlignment="Center" FontSize="14"/>
-            <Button Content="Kapat" Click="CloseButton2_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0"/>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,10,0" Width="20" Height="20" Click="CloseButton2_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Path Data="M 0,0 L 20,20 M 20,0 L 0,20" Stroke="Black" StrokeThickness="2"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
             <Label Content="Ürünün ismini giriniz:" FontSize="14"/>
             <TextBox x:Name="txtProductName" VerticalContentAlignment="Center" Height="30" FontSize="14" FontStyle="Italic"/>
             <Label Content="Gerekli en düşük sıcaklığı giriniz:" FontSize="14"/>
@@ -53,7 +59,13 @@
 
         <StackPanel x:Name="addProduct" Grid.Column="1" Orientation="Vertical" Visibility="Collapsed">
             <TextBlock Text="ÜRÜN EKLEME"  HorizontalAlignment="Center" FontSize="14"/>
-            <Button Content="Kapat" Click="CloseButton1_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0"/>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,10,0" Width="20" Height="20" Click="CloseButton1_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Path Data="M 0,0 L 20,20 M 20,0 L 0,20" Stroke="Black" StrokeThickness="2"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
             <Label Content="Ürünün ismini giriniz:" FontSize="14"/>
             <TextBox x:Name="txtProductNameAdd" VerticalContentAlignment="Center" Height="30" FontSize="14" FontStyle="Italic"/>
             <Label Content="Gerekli en düşük sıcaklığı giriniz:" FontSize="14"/>

@@ -21,9 +21,15 @@
             <Button x:Name="liveWeather" Content="Hava Durumu" FontSize="14" Click="liveWeather_Click" Height="50"/>
             <Button x:Name="liveSensor" Content="Nem Değeri" FontSize="14" Click="liveSensor_Click" Height="50"/>
         </StackPanel>
-        <StackPanel x:Name="liveWeatherPanel" Grid.Column="1" Orientation="Vertical" Visibility="Visible" Margin="0">
+        <StackPanel x:Name="liveWeatherPanel" Grid.Column="1" Orientation="Vertical" Visibility="Collapsed" Margin="0">
             <TextBlock Text="ANLIK HAVA DURUMU"  HorizontalAlignment="Center" FontSize="14"/>
-            <Button Content="Kapat" Click="CloseButton_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0"/>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,10,0" Width="20" Height="20" Click="CloseButton_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Path Data="M 0,0 L 20,20 M 20,0 L 0,20" Stroke="Black" StrokeThickness="2"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
@@ -79,7 +85,13 @@
         </StackPanel>
         <StackPanel x:Name="liveSensorPanel" Grid.Column="1" Orientation="Vertical" Visibility="Collapsed">
             <TextBlock Text="ANLIK NEM DEĞERİ"  HorizontalAlignment="Center" FontSize="14"/>
-            <Button Content="Kapat" Click="CloseButton_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0"/>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,10,0" Width="20" Height="20" Click="CloseButton_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Path Data="M 0,0 L 20,20 M 20,0 L 0,20" Stroke="Black" StrokeThickness="2"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
             <gauges:Gauge360>
                 <lvc:Gauge From="0" To="100" Value="{Binding HumidityValue}" Width="290" Height="300">
                     <lvc:Gauge.GaugeActiveFill>
