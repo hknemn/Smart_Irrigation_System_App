@@ -21,19 +21,30 @@
             <Button x:Name="liveWeather" Content="Hava Durumu" FontSize="14" Click="liveWeather_Click" Height="50"/>
             <Button x:Name="liveSensor" Content="Nem Değeri" FontSize="14" Click="liveSensor_Click" Height="50"/>
         </StackPanel>
-        <StackPanel x:Name="liveWeatherPanel" Grid.Column="1" Orientation="Vertical" Visibility="Collapsed" Margin="0">
+        <StackPanel x:Name="liveWeatherPanel" Grid.Column="1" Orientation="Vertical" Visibility="Visible" Margin="0">
             <TextBlock Text="ANLIK HAVA DURUMU"  HorizontalAlignment="Center" FontSize="14"/>
             <Button Content="Kapat" Click="CloseButton_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0"/>
-            
-            <TextBlock Text="Şehir Adı: " HorizontalAlignment="Left" FontSize="14" FontWeight="Bold"/>
-            <TextBlock x:Name="cityNameTextBlock" HorizontalAlignment="Left" FontSize="14"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Açıklama: " HorizontalAlignment="Left" FontSize="14" FontWeight="Bold"/>
-            <TextBlock x:Name="descriptionTextBlock" HorizontalAlignment="Left" FontSize="14"/>
+                <Label Content="ŞEHİR:" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold"/>
+                <TextBlock x:Name="cityNameTextBlock" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" FontSize="16" VerticalAlignment="Center"/>
 
-            <TextBlock Text="Tarih: " HorizontalAlignment="Left" FontSize="14" FontWeight="Bold"/>
-            <TextBlock x:Name="dateTextBlock" HorizontalAlignment="Left" FontSize="14"/>
-            
+                <Label Content="AÇIKLAMA:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold"/>
+                <TextBlock x:Name="descriptionTextBlock" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" FontSize="16" VerticalAlignment="Center"/>
+
+                <Label Content="TARİH:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold"/>
+                <TextBlock x:Name="dateTextBlock" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" FontSize="16" VerticalAlignment="Center"/>
+            </Grid>
+
             <Grid Width="600" Height="400">
                 <StackPanel HorizontalAlignment="Left" Width="300">
                     <gauges:Gauge360>
