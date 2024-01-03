@@ -9,6 +9,17 @@
       Title="Reports">
 
     <Grid>
-        <TextBlock Text="raporlar" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+        <ListView x:Name="reportsListView">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Lokasyon" DisplayMemberBinding="{Binding City_Name}" Width="120"/>
+                    <GridViewColumn Header="Ürün" DisplayMemberBinding="{Binding Product_Name}" Width="100"/>
+                    <GridViewColumn Header="Sulama Öncesi Nem" DisplayMemberBinding="{Binding Before_Irrigation_Humidity}" Width="120"/>
+                    <GridViewColumn Header="Sulama Sonrası Nem" DisplayMemberBinding="{Binding After_Irrigation_Humidity}" Width="120"/>
+                    <GridViewColumn Header="Açıklama" DisplayMemberBinding="{Binding Description}" Width="200"/>
+                    <GridViewColumn Header="Tarih" DisplayMemberBinding="{Binding Date}" Width="120"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Page>
