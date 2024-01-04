@@ -138,6 +138,7 @@ namespace Smart_Irrigation_System
                 mainFrame.Navigate(reportsPage);
             }
         }
+
         private void NavigateToSensorConfigure(object sender, RoutedEventArgs e)
         {
             if (sensorConfigurePage == null)
