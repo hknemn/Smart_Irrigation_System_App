@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <Folder Include="Databases\" />
+    <Folder Include="Icons\" />
   </ItemGroup>
 
   <ItemGroup>

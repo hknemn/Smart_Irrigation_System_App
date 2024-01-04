@@ -4,16 +4,24 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="750" Width="1250">
+        Icon="C:/Users/hknem/source/repos/SIS_App/Smart_Irrigation_System/Icons/smart_irrigation_system.ico"
+        Title="SMART IRRIGATION SYSTEM" 
+        Height="Auto" Width="Auto" 
+        WindowState="Maximized" WindowStyle="SingleBorderWindow">
+    
     <Grid>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Background="LightGray" Height="45">
-            <Button Content="Anasayfa" Click="NavigateToHomePage" Width="130"/>
-            <Button Content="Ürünler" Click="NavigateToProducts" Width="130"/>
-            <Button Content="Anlık Veri" Click="NavigateToLiveData" Width="130"/>
-            <Button Content="Raporlar" Click="NavigateToReports" Width="130"/>
-            <Button Content="Sensör Yapılandırması" Click="NavigateToSensorConfigure" Width="130"/>
-            <Button x:Name="loginButton" Content="Giriş Yap" Click="NavigateToLoginPage" Width="130"/>
-            <ComboBox x:Name="userDropdown" Width="130" Height="45" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" SelectionChanged="UserDropdown_SelectionChanged" FontSize="16" Visibility="Collapsed">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Background="LightGray" Height="60">
+            <Button Content="ANA SAYFA" Click="NavigateToHomePage" Width="160" FontSize="15" FontWeight="Bold"/>
+            <Button Content="ÜRÜNLER" Click="NavigateToProducts" Width="160" FontSize="15" FontWeight="Bold"/>
+            <Button Content="ANLIK VERİ" Click="NavigateToLiveData" Width="160" FontSize="15" FontWeight="Bold"/>
+            <Button Content="RAPORLAR" Click="NavigateToReports" Width="160" FontSize="15" FontWeight="Bold"/>
+            <Button Content="SENSÖR YAPILANDIRMA" Click="NavigateToSensorConfigure" Width="200" FontSize="15" FontWeight="Bold"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Background="LightGray" Height="60" HorizontalAlignment="Right">
+            <Button x:Name="loginButton" Content="Giriş Yap" Click="NavigateToLoginPage" Width="160" HorizontalAlignment="Right" FontSize="15" FontWeight="Bold"/>
+            <ComboBox x:Name="userDropdown" Width="160" Height="60" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" 
+                      SelectionChanged="UserDropdown_SelectionChanged" FontSize="16" Visibility="Collapsed" HorizontalAlignment="Right" FontWeight="Bold">
                 <ComboBox.ItemContainerStyle>
                     <Style TargetType="ComboBoxItem">
                         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -22,7 +30,6 @@
                 </ComboBox.ItemContainerStyle>
             </ComboBox>
         </StackPanel>
-
-        <Frame x:Name="mainFrame" Margin="0,45,0,0" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="mainFrame" Margin="0,60,0,0" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
