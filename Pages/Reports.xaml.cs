@@ -18,9 +18,7 @@ using System.Windows.Shapes;
 
 namespace Smart_Irrigation_System.Pages
 {
-    /// <summary>
-    /// Interaction logic for Reports.xaml
-    /// </summary>
+
     public partial class Reports : Page
     {
         private ObservableCollection<Report>? allReports;

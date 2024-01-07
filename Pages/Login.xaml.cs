@@ -18,9 +18,7 @@ using Smart_Irrigation_System.Services;
 
 namespace Smart_Irrigation_System.Pages
 {
-    /// <summary>
-    /// Interaction logic for Login.xaml
-    /// </summary>
+
     public partial class Login : Page
     {
         public Login()
@@ -38,7 +36,7 @@ namespace Smart_Irrigation_System.Pages
             string password = txtPassword.Password;
             if (AuthenticateUser(username, password))
             {
-                MessageBox.Show("Giriş başarılı!");
+                MessageBox.Show("GİRİŞ BAŞARILI", "BAŞARILI", MessageBoxButton.OK, MessageBoxImage.Information);
                 AppSession.LoggedInUser = new User { Username = username };
                 if (Application.Current.MainWindow is MainWindow mainWnd)
                 {
@@ -53,7 +51,7 @@ namespace Smart_Irrigation_System.Pages
             }
             else
             {
-                MessageBox.Show("Kullanıcı adı veya şifre yanlış!");
+                MessageBox.Show("KULLANICI ADI VEYA ŞİFRE YANLIŞ", "UYARI", MessageBoxButton.OK, MessageBoxImage.Warning);
                 txtPassword.Password = "";
             }
         }

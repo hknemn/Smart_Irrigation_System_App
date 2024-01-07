@@ -85,7 +85,7 @@ namespace Smart_Irrigation_System.Pages
         {
             if(AppSession.LoggedInUser == null)
             {
-                MessageBox.Show("Önce giriş yapmalısınız!");
+                MessageBox.Show("ÖNCE GİRİŞ YAPMALISINIZ!", "UYARI", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             else
             {
@@ -103,7 +103,7 @@ namespace Smart_Irrigation_System.Pages
 
                 if (selectedProduct != null)
                 {
-                    var result = MessageBox.Show("Ürünü silmek istiyor musunuz?", "Ürün Silme", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    var result = MessageBox.Show("ÜRÜNÜ SİLMEK İSTİYOR MUSUNUZ?", "ÜRÜN SİLME", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
                     if (result == MessageBoxResult.Yes)
                     {
@@ -113,12 +113,12 @@ namespace Smart_Irrigation_System.Pages
                 }
                 else
                 {
-                    MessageBox.Show("Lütfen bir ürün seçiniz.");
+                    MessageBox.Show("LÜTFEN BİR ÜRÜN SEÇİNİZ!", "UYARI", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
             else
             {
-                MessageBox.Show("Önce giriş yapmalısınız!");
+                MessageBox.Show("ÖNCE GİRİŞ YAPMALISINIZ!", "UYARI", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
         private void AddProduct_Click(object sender, RoutedEventArgs e)
@@ -131,7 +131,7 @@ namespace Smart_Irrigation_System.Pages
 
             if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(min_temperature) || string.IsNullOrWhiteSpace(max_temperature) || string.IsNullOrWhiteSpace(min_soilMoisture) || string.IsNullOrWhiteSpace(max_soilMoisture))
             {
-                MessageBox.Show("Lütfen tüm alanları doldurun!");
+                MessageBox.Show("LÜTFEN TÜM ALANLARI DOLDURUN!", "UYARI", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -155,7 +155,7 @@ namespace Smart_Irrigation_System.Pages
                         int result = cmd.ExecuteNonQuery();
                         if (result > 0)
                         {
-                            MessageBox.Show("Ürün başarıyla eklendi!");
+                            MessageBox.Show("ÜRÜN BAŞARIYLA EKLENDİ", "BAŞARILI", MessageBoxButton.OK, MessageBoxImage.Information);
                             txtProductNameAdd.Text = "";
                             txtTemperatureAdd.Text = "";
                             txtTemperatureAdd2.Text = "";
@@ -167,7 +167,7 @@ namespace Smart_Irrigation_System.Pages
                         }
                         else
                         {
-                            MessageBox.Show("Ürün eklenirken bir hata oluştu!");
+                            MessageBox.Show("ÜRÜN EKLENİRKEN BİR HATA OLUŞTU!", "UYARI", MessageBoxButton.OK, MessageBoxImage.Warning);
                             txtProductNameAdd.Text = "";
                             txtTemperatureAdd.Text = "";
                             txtTemperatureAdd2.Text = "";
@@ -177,7 +177,7 @@ namespace Smart_Irrigation_System.Pages
                     }
                     catch
                     {
-                        MessageBox.Show("Aynı ürün isminden zaten mevcut!");
+                        MessageBox.Show("AYNI ÜRÜN İSMİNDEN ZATEN MEVCUT!", "UYARI", MessageBoxButton.OK, MessageBoxImage.Warning);
                         txtProductNameAdd.Text = "";
                     }
                 }
@@ -201,12 +201,12 @@ namespace Smart_Irrigation_System.Pages
                 }
                 else
                 {
-                    MessageBox.Show("Lütfen bir ürün seçiniz.");
+                    MessageBox.Show("LÜTFEN BİR ÜRÜN SEÇİNİZ!", "UYARI", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
             }
             else
             {
-                MessageBox.Show("Önce giriş yapmalısınız!");
+                MessageBox.Show("ÖNCE GİRİŞ YAPMALISINIZ!", "UYARI", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
@@ -225,11 +225,11 @@ namespace Smart_Irrigation_System.Pages
                     int result = cmd.ExecuteNonQuery();
                     if (result > 0)
                     {
-                        MessageBox.Show("Ürün başarıyla silindi!");
+                        MessageBox.Show("ÜRÜN BAŞARIYLA SİLİNDİ", "BAŞARILI", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Ürün silinirken bir hata oluştu!");
+                        MessageBox.Show("ÜRÜN SİLİNİRKEN BİR HATA OLUŞTU!", "UYARI", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
                 }
 
@@ -257,11 +257,11 @@ namespace Smart_Irrigation_System.Pages
                     int result = cmd.ExecuteNonQuery();
                     if(result > 0)
                     {
-                        MessageBox.Show("Ürün başarıyla güncellendi!");
+                        MessageBox.Show("ÜRÜN BAŞARIYLA GÜNCELLENDİ", "BAŞARILI", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Ürün güncellenirken bir hata oluştu!");
+                        MessageBox.Show("ÜRÜN GÜNCELLENİRKEN BİR HATA OLUŞTU!", "UYARI", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
                 }
 

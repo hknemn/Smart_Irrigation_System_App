@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Smart_Irrigation_System.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.SQLite;
@@ -34,6 +35,7 @@ namespace Smart_Irrigation_System.Pages
         {
             InitializeComponent();
             LoadProductNames();
+            LoadSelectedItems();
             this.DataContext = this;
         }
         private void LoadProductNames()
@@ -44,6 +46,7 @@ namespace Smart_Irrigation_System.Pages
             {
                 connection.Open();
                 string query = "SELECT name FROM products";
+                ProductNames.Add("Ürün Seçiniz");
                 using (SQLiteCommand cmd = new SQLiteCommand(query, connection))
                 {
                     using (SQLiteDataReader reader = cmd.ExecuteReader())
@@ -57,6 +60,7 @@ namespace Smart_Irrigation_System.Pages
                 }
                 connection.Close();
             }
+            productNameComboBox.SelectedIndex = 0;
         }
 
         private void productNameComboBox_DropDownOpened(object sender, EventArgs e)
@@ -67,7 +71,7 @@ namespace Smart_Irrigation_System.Pages
 
         private void configureButton_Click(object sender, RoutedEventArgs e)
         {
-            if (productNameComboBox.SelectedItem != null && !string.IsNullOrEmpty(cityNameTextBox.Text))
+            if (productNameComboBox.SelectedItem != null && !string.IsNullOrEmpty(cityNameTextBox.Text) && productNameComboBox.SelectedIndex != 0)
             {
                 string? selectedProductName = productNameComboBox.SelectedItem.ToString();
                 string cityName = cityNameTextBox.Text;
@@ -90,12 +94,42 @@ namespace Smart_Irrigation_System.Pages
 
                     connection.Close();
                 }
-                MessageBox.Show("Sensör başarıyla yapılandırıldı!", "Başarılı", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("SENSÖR BAŞARIYLA YAPILANDIRILDI", "BAŞARILI", MessageBoxButton.OK, MessageBoxImage.Information);
+                productNameComboBox.SelectedIndex = 0;
+                cityNameTextBox.Text = "";
+                LoadSelectedItems();
             }
             else
             {
-                MessageBox.Show("Lütfen tüm alanları doldurun!", "Uyarı", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("LÜTFEN TÜM ALANLARI DOLDURUN!", "UYARI", MessageBoxButton.OK, MessageBoxImage.Warning);
+                productNameComboBox.SelectedIndex = 0;
             }
+        }
+
+        private void LoadSelectedItems()
+        {
+            List<SelectedItems> items = new List<SelectedItems>();
+
+            string connectionString = $"Data Source={databasePath2};Version=3;";
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT city_name, product_name FROM items";
+                using (SQLiteCommand cmd = new SQLiteCommand(query, connection))
+                {
+                    using (SQLiteDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string cityName = reader.GetString(0);
+                            string productName = reader.GetString(1);
+                            items.Add(new SelectedItems { City_Name = cityName, Product_Name = productName });
+                        }
+                    }
+                }
+                connection.Close();
+            }
+            dataListView.ItemsSource = items;
         }
     }
 }

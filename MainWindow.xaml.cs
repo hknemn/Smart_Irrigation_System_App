@@ -160,7 +160,7 @@ namespace Smart_Irrigation_System
                 {
                     if (selectedOption.Equals("Çıkış Yap"))
                     {
-                        if (MessageBox.Show("Çıkış yapmak istediğinizden emin misiniz?", "Onay", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                        if (MessageBox.Show("ÇIKIŞ YAPMAK İSTEDİĞİNİZDEN EMİN MİSİNİZ?", "ONAY", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                         {
                             AppSession.LoggedInUser = null;
                             UpdateUserDisplay();
