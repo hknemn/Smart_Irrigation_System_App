@@ -126,8 +126,8 @@ namespace Smart_Irrigation_System.Pages
             string name = txtProductNameAdd.Text;
             string min_temperature = txtTemperatureAdd.Text;
             string max_temperature = txtTemperatureAdd2.Text;
-            string min_soilMoisture = txtSoilMoisture.Text;
-            string max_soilMoisture = txtSoilMoisture2.Text;
+            string min_soilMoisture = txtSoilMoistureAdd.Text;
+            string max_soilMoisture = txtSoilMoistureAdd2.Text;
 
             if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(min_temperature) || string.IsNullOrWhiteSpace(max_temperature) || string.IsNullOrWhiteSpace(min_soilMoisture) || string.IsNullOrWhiteSpace(max_soilMoisture))
             {
@@ -141,7 +141,7 @@ namespace Smart_Irrigation_System.Pages
             {
                 connection.Open();
 
-                string query = "INSERT INTO Products (name, min_temperature, max_temperature, min_soilMoisture, max_soilMoisture) VALUES (@name, @min_temperature, @max_temperature, @min_humidity, @max_humidity)";
+                string query = "INSERT INTO products (name, min_temperature, max_temperature, min_soilMoisture, max_soilMoisture) VALUES (@name, @min_temperature, @max_temperature, @min_soilMoisture, @max_soilMoisture)";
                 using (SQLiteCommand cmd = new SQLiteCommand(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@name", name);
@@ -243,7 +243,7 @@ namespace Smart_Irrigation_System.Pages
             {
                 conn.Open();
 
-                string sql = @"UPDATE products SET name = @Name, min_temperature = @Min_Temperature, max_temperature = @Max_Temperature, min_soilMoisture = @Min_Humidity, max_soilMoisture = @Max_Humidity WHERE id = @Id";
+                string sql = @"UPDATE products SET name = @Name, min_temperature = @Min_Temperature, max_temperature = @Max_Temperature, min_soilMoisture = @Min_SoilMoisture, max_soilMoisture = @Max_SoilMoisture WHERE id = @Id";
 
                 using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
                 {

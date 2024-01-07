@@ -54,7 +54,6 @@ namespace Smart_Irrigation_System.Pages
             else
             {
                 MessageBox.Show("Kullanıcı adı veya şifre yanlış!");
-                txtUsername.Text = "";
                 txtPassword.Password = "";
             }
         }

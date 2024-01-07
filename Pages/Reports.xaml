@@ -11,7 +11,7 @@
         <ListView x:Name="reportsListView">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="150">
+                    <GridViewColumn Width="160">
                         <GridViewColumn.HeaderTemplate>
                             <DataTemplate>
                                 <TextBlock Text="Lokasyon" FontSize="18"/>
@@ -24,7 +24,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn Width="120">
+                    <GridViewColumn Width="135">
                         <GridViewColumn.HeaderTemplate>
                             <DataTemplate>
                                 <TextBlock Text="Ürün" FontSize="18"/>
@@ -37,7 +37,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn Width="200">
+                    <GridViewColumn Width="210">
                         <GridViewColumn.HeaderTemplate>
                             <DataTemplate>
                                 <TextBlock Text="Sulama Öncesi Sıcaklık" FontSize="18"/>
@@ -50,7 +50,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn Width="200">
+                    <GridViewColumn Width="210">
                         <GridViewColumn.HeaderTemplate>
                             <DataTemplate>
                                 <TextBlock Text="Sulama Sonrası Sıcaklık" FontSize="18"/>
@@ -63,7 +63,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn Width="180">
+                    <GridViewColumn Width="200">
                         <GridViewColumn.HeaderTemplate>
                             <DataTemplate>
                                 <TextBlock Text="Sulama Öncesi Nem" FontSize="18"/>
@@ -76,7 +76,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     
-                    <GridViewColumn Width="180">
+                    <GridViewColumn Width="200">
                         <GridViewColumn.HeaderTemplate>
                             <DataTemplate>
                                 <TextBlock Text="Sulama Sonrası Nem" FontSize="18"/>
@@ -89,7 +89,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn Width="220">
+                    <GridViewColumn Width="250">
                         <GridViewColumn.HeaderTemplate>
                             <DataTemplate>
                                 <TextBlock Text="Açıklama" FontSize="18"/>
