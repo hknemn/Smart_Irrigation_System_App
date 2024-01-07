@@ -8,43 +8,47 @@
       Title="SensorConfigure">
 
     <Grid>
-        <ListView x:Name="dataListView">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Width="150">
-                        <GridViewColumn.HeaderTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="Şehir" FontSize="18"/>
-                            </DataTemplate>
-                        </GridViewColumn.HeaderTemplate>
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding City_Name}" FontSize="16"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+        <StackPanel Orientation="Vertical">
+            <Label Content="Mevcut Sensör Yapılandırması" FontSize="15" VerticalAlignment="Top" Height="30" HorizontalAlignment="Center"/>
+            <ListView x:Name="dataListView" Height="100" VerticalAlignment="Top" Width="410" HorizontalAlignment="Center">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="200">
+                            <GridViewColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="Şehir" FontSize="18"/>
+                                </DataTemplate>
+                            </GridViewColumn.HeaderTemplate>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding City_Name}" FontSize="16"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-                    <GridViewColumn Width="200">
-                        <GridViewColumn.HeaderTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="Ürün" FontSize="18"/>
-                            </DataTemplate>
-                        </GridViewColumn.HeaderTemplate>
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Product_Name}" FontSize="16"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
+                        <GridViewColumn Width="200">
+                            <GridViewColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="Ürün" FontSize="18"/>
+                                </DataTemplate>
+                            </GridViewColumn.HeaderTemplate>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Product_Name}" FontSize="16"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
 
-        <ComboBox x:Name="productNameComboBox" Width="200" Height="30" ItemsSource="{Binding ProductNames}" DropDownOpened="productNameComboBox_DropDownOpened"/>
-        <Grid VerticalAlignment="Center" HorizontalAlignment="Left">
-            <TextBox x:Name="cityNameTextBox" Width="230" Height="35" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="14"/>
-            <Label x:Name="cityNameLabel" Content="Şehir giriniz (örn: Mamak, Ankara)" Width="230" Margin="0,-25,0,40" FontSize="14"/>
-        </Grid>
-        <Button x:Name="configureButton" Content="Yapılandır" Height="45" Width="90" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="configureButton_Click"/>
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 20 0 0">
+                <TextBox x:Name="cityNameTextBox" Width="230" Height="35" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="14"/>
+                <Label x:Name="cityNameLabel" Content="Şehir giriniz (örn: Mamak, Ankara)" Width="230" Margin="0,-25,0,40" FontSize="14"/>
+            </Grid>
+            
+            <ComboBox x:Name="productNameComboBox" Width="200" Height="30" ItemsSource="{Binding ProductNames}" DropDownOpened="productNameComboBox_DropDownOpened" Margin="0 0 0 200"/>
+            <Button x:Name="configureButton" Content="Yapılandır" Height="45" Width="90" Click="configureButton_Click" FontSize="15"/>
+        </StackPanel>
     </Grid>
 </Page>

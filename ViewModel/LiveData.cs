@@ -9,19 +9,33 @@ namespace Smart_Irrigation_System.ViewModel
 {
     public class LiveData : INotifyPropertyChanged
     {
-        private double _humidityValue;
+        private double _soilMoisture;
         private double _weatherHumidity;
         private double _weatherTemperature;
+        private double _temperature;
 
-        public double HumidityValue
+        public double Temperature
         {
-            get { return _humidityValue; }
+            get { return _temperature; }
             set
             {
-                if (_humidityValue != value)
+                if (_temperature != value)
                 {
-                    _humidityValue = value;
-                    OnPropertyChanged(nameof(HumidityValue));
+                    _temperature = value;
+                    OnPropertyChanged(nameof(Temperature));
+                }
+            }
+        }
+
+        public double SoilMoisture
+        {
+            get { return _soilMoisture; }
+            set
+            {
+                if (_soilMoisture != value)
+                {
+                    _soilMoisture = value;
+                    OnPropertyChanged(nameof(SoilMoisture));
                 }
             }
         }
