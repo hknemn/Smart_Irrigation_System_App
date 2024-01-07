@@ -21,6 +21,10 @@ namespace Smart_Irrigation_System.Pages
     public partial class SensorConfigure : Page
     {
         public ObservableCollection<string> ProductNames { get; set; } = new ObservableCollection<string>();
+        private string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/Databases/products.sqlite";
+        //private string databasePath = "R:/Smart_Agriculture/Databases/products.sqlite";
+        private string databasePath2 = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/Databases/selected_items.sqlite";
+        //private string databasePath2 = "R:/Smart_Agriculture/Databases/selected_items.sqlite";    
 
         public string? SelectedProductName { get; set; }
 
@@ -33,9 +37,7 @@ namespace Smart_Irrigation_System.Pages
             this.DataContext = this;
         }
         private void LoadProductNames()
-        {
-            //string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/products.sqlite";
-            string databasePath = "R:/Smart_Agriculture/products.sqlite";      
+        {    
             string connectionString = $"Data Source={databasePath};Version=3;";
 
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
@@ -69,10 +71,8 @@ namespace Smart_Irrigation_System.Pages
             {
                 string? selectedProductName = productNameComboBox.SelectedItem.ToString();
                 string cityName = cityNameTextBox.Text;
-
-                //string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/selected_items.sqlite";
-                string databasePath = "R:/Smart_Agriculture/selected_items.sqlite";      
-                string connectionString = $"Data Source={databasePath};Version=3;";
+  
+                string connectionString = $"Data Source={databasePath2};Version=3;";
 
                 using (SQLiteConnection connection = new SQLiteConnection(connectionString))
                 {

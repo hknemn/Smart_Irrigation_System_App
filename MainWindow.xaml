@@ -10,26 +10,31 @@
         WindowState="Maximized" WindowStyle="SingleBorderWindow">
     
     <Grid>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Background="LightGray" Height="60">
-            <Button Content="ANA SAYFA" Click="NavigateToHomePage" Width="160" FontSize="15" FontWeight="Bold"/>
-            <Button Content="ÜRÜNLER" Click="NavigateToProducts" Width="160" FontSize="15" FontWeight="Bold"/>
-            <Button Content="ANLIK VERİ" Click="NavigateToLiveData" Width="160" FontSize="15" FontWeight="Bold"/>
-            <Button Content="RAPORLAR" Click="NavigateToReports" Width="160" FontSize="15" FontWeight="Bold"/>
-            <Button Content="SENSÖR YAPILANDIRMA" Click="NavigateToSensorConfigure" Width="200" FontSize="15" FontWeight="Bold"/>
+        <StackPanel Background="#5A4F4F" Orientation="Horizontal" VerticalAlignment="Top" Height="60">
+            <Button Background="#5A4F4F" Content="ANA SAYFA" Click="NavigateToHomePage" Width="160" FontSize="15" FontWeight="Bold" Foreground="#FFFFFF"/>
+            <Button Background="#5A4F4F" Content="ÜRÜNLER" Click="NavigateToProducts" Width="160" FontSize="15" FontWeight="Bold" Foreground="#FFFFFF"/>
+            <Button Background="#5A4F4F" Content="ANLIK VERİ" Click="NavigateToLiveData" Width="160" FontSize="15" FontWeight="Bold" Foreground="#FFFFFF"/>
+            <Button Background="#5A4F4F" Content="RAPORLAR" Click="NavigateToReports" Width="160" FontSize="15" FontWeight="Bold" Foreground="#FFFFFF"/>
+            <Button Background="#5A4F4F" Content="SENSÖR YAPILANDIRMA" Click="NavigateToSensorConfigure" Width="200" FontSize="15" FontWeight="Bold" Foreground="#FFFFFF"/>
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Background="LightGray" Height="60" HorizontalAlignment="Right">
-            <Button x:Name="loginButton" Content="Giriş Yap" Click="NavigateToLoginPage" Width="160" HorizontalAlignment="Right" FontSize="15" FontWeight="Bold"/>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Height="60" HorizontalAlignment="Right">
+            <Button x:Name="loginButton" Background="#5A4F4F" Content="Giriş Yap" Click="NavigateToLoginPage" Width="160" HorizontalAlignment="Right" FontSize="15" FontWeight="Bold" Foreground="#FFFFFF"/>
             <ComboBox x:Name="userDropdown" Width="160" Height="60" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" 
                       SelectionChanged="UserDropdown_SelectionChanged" FontSize="16" Visibility="Collapsed" HorizontalAlignment="Right" FontWeight="Bold">
                 <ComboBox.ItemContainerStyle>
                     <Style TargetType="ComboBoxItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
                         <Setter Property="FontSize" Value="16" />
+                        <Setter Property="Background" Value="#5A4F4F"/>
                     </Style>
                 </ComboBox.ItemContainerStyle>
             </ComboBox>
         </StackPanel>
-        <Frame x:Name="mainFrame" Margin="0,60,0,0" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="mainFrame" Margin="0,60,0,0" NavigationUIVisibility="Hidden">
+            <Frame.Background>
+                <ImageBrush ImageSource="C:/Users/hknem/source/repos/SIS_App/Smart_Irrigation_System/Background/bg.png"/>
+            </Frame.Background>
+        </Frame>
     </Grid>
 </Window>

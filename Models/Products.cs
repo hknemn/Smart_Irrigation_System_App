@@ -12,8 +12,8 @@ namespace Smart_Irrigation_System.Models
         public required string Name { get; set; }
         public required  double Min_Temperature { get; set; }
         public required double Max_Temperature { get; set; }
-        public required double Min_Humidity { get; set; }
-        public required double Max_Humidity { get; set; }
+        public required double Min_SoilMoisture { get; set; }
+        public required double Max_SoilMoisture { get; set; }
 
     }
 }

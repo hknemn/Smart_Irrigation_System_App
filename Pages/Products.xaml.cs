@@ -23,6 +23,8 @@ namespace Smart_Irrigation_System.Pages
     {
         private ObservableCollection<Product>? allProducts;
         private Product? selectedProduct = null;
+        private string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/Databases/products.sqlite";
+        //private string databasePath = "R:/Smart_Agriculture/Databases/products.sqlite"; 
 
         public Products()
         {
@@ -30,9 +32,7 @@ namespace Smart_Irrigation_System.Pages
             LoadProducts();
         }
         public void LoadProducts()
-        {
-            //string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/products.sqlite";
-            string databasePath = "R:/Smart_Agriculture/products.sqlite";      
+        {     
             string connectionString = $"Data Source={databasePath};Version=3;";
 
             allProducts = new ObservableCollection<Product>();
@@ -41,7 +41,7 @@ namespace Smart_Irrigation_System.Pages
             {
                 connection.Open();
 
-                string query = "SELECT id, name, min_temperature, max_temperature, min_humidity, max_humidity FROM Products";
+                string query = "SELECT id, name, min_temperature, max_temperature, min_soilMoisture, max_soilMoisture FROM products";
                 using (SQLiteCommand cmd = new SQLiteCommand(query, connection))
                 {
                     using (SQLiteDataReader reader = cmd.ExecuteReader())
@@ -52,10 +52,10 @@ namespace Smart_Irrigation_System.Pages
                             string name = reader.GetString(1);
                             double min_temperature = reader.GetInt32(2);
                             double max_temperature = reader.GetInt32(3);
-                            double min_humidity = reader.GetInt32(4);
-                            double max_humidity = reader.GetInt32(5);
+                            double min_soilMoisture = reader.GetInt32(4);
+                            double max_soilMoisture = reader.GetInt32(5);
 
-                            allProducts.Add(new Product { Id = id, Name = name, Min_Temperature = min_temperature, Max_Temperature = max_temperature, Min_Humidity = min_humidity, Max_Humidity = max_humidity });
+                            allProducts.Add(new Product { Id = id, Name = name, Min_Temperature = min_temperature, Max_Temperature = max_temperature, Min_SoilMoisture = min_soilMoisture, Max_SoilMoisture = max_soilMoisture });
                         }
                     }
                 }
@@ -126,31 +126,29 @@ namespace Smart_Irrigation_System.Pages
             string name = txtProductNameAdd.Text;
             string min_temperature = txtTemperatureAdd.Text;
             string max_temperature = txtTemperatureAdd2.Text;
-            string min_humidity = txtHumidityAdd.Text;
-            string max_humidity = txtHumidityAdd2.Text;
+            string min_soilMoisture = txtSoilMoisture.Text;
+            string max_soilMoisture = txtSoilMoisture2.Text;
 
-            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(min_temperature) || string.IsNullOrWhiteSpace(max_temperature) || string.IsNullOrWhiteSpace(min_humidity) || string.IsNullOrWhiteSpace(max_humidity))
+            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(min_temperature) || string.IsNullOrWhiteSpace(max_temperature) || string.IsNullOrWhiteSpace(min_soilMoisture) || string.IsNullOrWhiteSpace(max_soilMoisture))
             {
                 MessageBox.Show("Lütfen tüm alanları doldurun!");
                 return;
             }
 
-            //string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/products.sqlite";
-            string databasePath = "R:/Smart_Agriculture/products.sqlite";
             string connectionString = $"Data Source={databasePath};Version=3;";
 
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
 
-                string query = "INSERT INTO Products (name, min_temperature, max_temperature, min_humidity, max_humidity) VALUES (@name, @min_temperature, @max_temperature, @min_humidity, @max_humidity)";
+                string query = "INSERT INTO Products (name, min_temperature, max_temperature, min_soilMoisture, max_soilMoisture) VALUES (@name, @min_temperature, @max_temperature, @min_humidity, @max_humidity)";
                 using (SQLiteCommand cmd = new SQLiteCommand(query, connection))
                 {
                     cmd.Parameters.AddWithValue("@name", name);
                     cmd.Parameters.AddWithValue("@min_temperature", min_temperature);
                     cmd.Parameters.AddWithValue("@max_temperature", max_temperature);
-                    cmd.Parameters.AddWithValue("@min_humidity", min_humidity);
-                    cmd.Parameters.AddWithValue("@max_humidity", max_humidity);
+                    cmd.Parameters.AddWithValue("@min_soilMoisture", min_soilMoisture);
+                    cmd.Parameters.AddWithValue("@max_soilMoisture", max_soilMoisture);
 
                     try
                     {
@@ -161,8 +159,8 @@ namespace Smart_Irrigation_System.Pages
                             txtProductNameAdd.Text = "";
                             txtTemperatureAdd.Text = "";
                             txtTemperatureAdd2.Text = "";
-                            txtHumidityAdd.Text = "";
-                            txtHumidityAdd2.Text = "";
+                            txtSoilMoistureAdd.Text = "";
+                            txtSoilMoistureAdd2.Text = "";
                             addProduct.Visibility = Visibility.Collapsed;
                             productList.Visibility = Visibility.Visible;
                             LoadProducts();
@@ -173,8 +171,8 @@ namespace Smart_Irrigation_System.Pages
                             txtProductNameAdd.Text = "";
                             txtTemperatureAdd.Text = "";
                             txtTemperatureAdd2.Text = "";
-                            txtHumidityAdd.Text = "";
-                            txtHumidityAdd2.Text = "";
+                            txtSoilMoistureAdd.Text = "";
+                            txtSoilMoistureAdd2.Text = "";
                         }
                     }
                     catch
@@ -198,8 +196,8 @@ namespace Smart_Irrigation_System.Pages
                     txtProductName.Text = selectedProduct.Name;
                     txtTemperature.Text = selectedProduct.Min_Temperature.ToString();
                     txtTemperature2.Text = selectedProduct.Max_Temperature.ToString();
-                    txtHumidity.Text = selectedProduct.Min_Humidity.ToString();
-                    txtHumidity2.Text = selectedProduct.Max_Humidity.ToString();
+                    txtSoilMoisture.Text = selectedProduct.Min_SoilMoisture.ToString();
+                    txtSoilMoisture2.Text = selectedProduct.Max_SoilMoisture.ToString();
                 }
                 else
                 {
@@ -214,8 +212,6 @@ namespace Smart_Irrigation_System.Pages
 
         public void DeleteProduct(int productId)
         {
-            //string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/products.sqlite";
-            string databasePath = "R:/Smart_Agriculture/products.sqlite";
             string connectionString = $"Data Source={databasePath};Version=3;";
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {
@@ -242,22 +238,20 @@ namespace Smart_Irrigation_System.Pages
         }
         public void UpdateProduct(Product updatedProduct)
         {
-            //string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/products.sqlite";
-            string databasePath = "R:/Smart_Agriculture/products.sqlite";
             string connectionString = $"Data Source={databasePath};Version=3;";
             using (SQLiteConnection conn = new SQLiteConnection(connectionString))
             {
                 conn.Open();
 
-                string sql = @"UPDATE products SET name = @Name, min_temperature = @Min_Temperature, max_temperature = @Max_Temperature, min_humidity = @Min_Humidity, max_humidity = @Max_Humidity WHERE id = @Id";
+                string sql = @"UPDATE products SET name = @Name, min_temperature = @Min_Temperature, max_temperature = @Max_Temperature, min_soilMoisture = @Min_Humidity, max_soilMoisture = @Max_Humidity WHERE id = @Id";
 
                 using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@Name", updatedProduct.Name);
                     cmd.Parameters.AddWithValue("@Min_Temperature", updatedProduct.Min_Temperature);
                     cmd.Parameters.AddWithValue("@Max_Temperature", updatedProduct.Max_Temperature);
-                    cmd.Parameters.AddWithValue("@Min_Humidity", updatedProduct.Min_Humidity);
-                    cmd.Parameters.AddWithValue("@Max_Humidity", updatedProduct.Max_Humidity);
+                    cmd.Parameters.AddWithValue("@Min_SoilMoisture", updatedProduct.Min_SoilMoisture);
+                    cmd.Parameters.AddWithValue("@Max_SoilMoisture", updatedProduct.Max_SoilMoisture);
                     cmd.Parameters.AddWithValue("@Id", updatedProduct.Id);
 
                     int result = cmd.ExecuteNonQuery();
@@ -282,8 +276,8 @@ namespace Smart_Irrigation_System.Pages
                 selectedProduct.Name = txtProductName.Text;
                 selectedProduct.Min_Temperature = Convert.ToDouble(txtTemperature.Text);
                 selectedProduct.Max_Temperature = Convert.ToDouble(txtTemperature2.Text);
-                selectedProduct.Min_Humidity = Convert.ToDouble(txtHumidity.Text);
-                selectedProduct.Max_Humidity = Convert.ToDouble(txtHumidity2.Text);
+                selectedProduct.Min_SoilMoisture = Convert.ToDouble(txtSoilMoisture.Text);
+                selectedProduct.Max_SoilMoisture = Convert.ToDouble(txtSoilMoisture2.Text);
                 UpdateProduct(selectedProduct);
                 updateProduct.Visibility = Visibility.Collapsed;
                 productList.Visibility = Visibility.Visible;

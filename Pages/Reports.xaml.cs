@@ -24,6 +24,8 @@ namespace Smart_Irrigation_System.Pages
     public partial class Reports : Page
     {
         private ObservableCollection<Report>? allReports;
+        private string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/Databases/irrigation_report.sqlite";
+        //private string databasePath = "R:/Smart_Agriculture/Databases/irrigation_report.sqlite";
         public Reports()
         {
             InitializeComponent();
@@ -31,8 +33,6 @@ namespace Smart_Irrigation_System.Pages
         }
         public void LoadProducts()
         {
-            //string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/products.sqlite";
-            string databasePath = "R:/Smart_Agriculture/irrigation_report.sqlite";
             string connectionString = $"Data Source={databasePath};Version=3;";
 
             allReports = new ObservableCollection<Report>();
@@ -41,7 +41,7 @@ namespace Smart_Irrigation_System.Pages
             {
                 connection.Open();
 
-                string query = "SELECT id, city_name, product_name, before_irrigation_humidity, after_irrigation_humidity, description, date FROM report";
+                string query = "SELECT id, city_name, product_name, before_irrigation_temperature, after_irrigation_temperature, before_irrigation_soilMoisture, after_irrigation_soilMoisture, description, date FROM report";
                 using (SQLiteCommand cmd = new SQLiteCommand(query, connection))
                 {
                     using (SQLiteDataReader reader = cmd.ExecuteReader())
@@ -51,12 +51,14 @@ namespace Smart_Irrigation_System.Pages
                             int id = reader.GetInt32(0);
                             string city_name = reader.GetString(1);
                             string product_name = reader.GetString(2);
-                            double before_irrigation_humidity = reader.GetDouble(3);
-                            double after_irrigation_humidity = reader.GetDouble(4);
-                            string description = reader.GetString(5);
-                            string date = reader.GetString(6);
+                            double before_irrigation_temperature = reader.GetDouble(3);
+                            double after_irrigation_temperature = reader.GetDouble(4);
+                            double before_irrigation_soilMoisture = reader.GetDouble(5);
+                            double after_irrigation_soilMoisture = reader.GetDouble(6);
+                            string description = reader.GetString(7);
+                            string date = reader.GetString(8);
 
-                            allReports.Add(new Report { Id = id, City_Name = city_name, Product_Name = product_name, Before_Irrigation_Humidity = before_irrigation_humidity, After_Irrigation_Humidity = after_irrigation_humidity, Description = description, Date = date });
+                            allReports.Add(new Report { Id = id, City_Name = city_name, Product_Name = product_name, Before_Irrigation_Temperature = before_irrigation_temperature, After_Irrigation_Temperature = after_irrigation_temperature, Before_Irrigation_SoilMoisture = before_irrigation_soilMoisture, After_Irrigation_SoilMoisture = after_irrigation_soilMoisture, Description = description, Date = date });
                         }
                     }
                 }

@@ -23,6 +23,10 @@ namespace Smart_Irrigation_System.Pages
     public partial class LiveData : Page
     {
         private ViewModel.LiveData? liveData;
+        private string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/Databases/live_soilMoisture_temperature.sqlite";
+        //private string databasePath = "R:/Smart_Agriculture/Databases/live_soilMoisture_temperature.sqlite";  
+        private string databasePath2 = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/Databases/live_weather.sqlite";
+        //private string databasePath2 = "R:/Smart_Agriculture/Databases/live_weather.sqlite";  
         public LiveData()
         {
             InitializeComponent();
@@ -45,16 +49,14 @@ namespace Smart_Irrigation_System.Pages
         }
 
         private void updateSensorGauge()
-        {
-            //string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/live_humidity.sqlite";
-            string databasePath = "R:/Smart_Agriculture/live_humidity.sqlite";      
+        {    
             string connectionString = $"Data Source={databasePath};Version=3;";
 
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
 
-                string query = "SELECT name, humidity FROM product";
+                string query = "SELECT product_name, temperature, soil_moisture FROM product";
                 SQLiteCommand command = new SQLiteCommand(query, connection);
 
                 using (SQLiteDataReader reader = command.ExecuteReader())
@@ -75,16 +77,14 @@ namespace Smart_Irrigation_System.Pages
         }
 
         private void updateWeatherGauge()
-        {
-            //string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/weathers.sqlite";
-            string databasePath = "R:/Smart_Agriculture/weathers.sqlite";      
-            string connectionString = $"Data Source={databasePath};Version=3;";
+        {    
+            string connectionString = $"Data Source={databasePath2};Version=3;";
 
             using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
 
-                string query = "SELECT city_name, humidity, temperature, description, date FROM weathers";
+                string query = "SELECT city_name, temperature, humidity, description, date FROM weather";
                 SQLiteCommand command = new SQLiteCommand(query, connection);
 
                 using (SQLiteDataReader reader = command.ExecuteReader())
@@ -92,8 +92,8 @@ namespace Smart_Irrigation_System.Pages
                     while (reader.Read())
                     {
                         string city_name = reader.GetString(0);
-                        double humidity = reader.GetDouble(1);
-                        double temperature = reader.GetDouble(2);
+                        double temperature = reader.GetDouble(1);
+                        double humidity = reader.GetDouble(2);
                         string description = reader.GetString(3);
                         string date = reader.GetString(4);
                         if (liveData != null)

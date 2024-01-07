@@ -72,7 +72,7 @@
                             </GridViewColumn.HeaderTemplate>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Min_Humidity}" FontSize="16"/>
+                                    <TextBlock Text="{Binding Min_SoilMoisture}" FontSize="16"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -85,7 +85,7 @@
                             </GridViewColumn.HeaderTemplate>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Max_Humidity}" FontSize="16"/>
+                                    <TextBlock Text="{Binding Max_SoilMoisture}" FontSize="16"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -110,9 +110,9 @@
             <Label Content="Gerekli en yüksek sıcaklığı giriniz:" FontSize="14"/>
             <TextBox x:Name="txtTemperature2" VerticalContentAlignment="Center" Height="30" FontSize="14" FontStyle="Italic"/>
             <Label Content="Gerekli en düşük nem oranını giriniz:" FontSize="14"/>
-            <TextBox x:Name="txtHumidity" VerticalContentAlignment="Center" Height="30" FontSize="14" FontStyle="Italic"/>
+            <TextBox x:Name="txtSoilMoisture" VerticalContentAlignment="Center" Height="30" FontSize="14" FontStyle="Italic"/>
             <Label Content="Gerekli en yüksek nem oranını giriniz:" FontSize="14"/>
-            <TextBox x:Name="txtHumidity2" VerticalContentAlignment="Center" Height="30" FontSize="14" FontStyle="Italic"/>
+            <TextBox x:Name="txtSoilMoisture2" VerticalContentAlignment="Center" Height="30" FontSize="14" FontStyle="Italic"/>
             <Button Content="Ürünü Güncelle" Click="UpdateProduct_Click" Margin="0 10 0 0" Width="100" Height="40"/>
         </StackPanel>
 
@@ -132,9 +132,9 @@
             <Label Content="Gerekli en yüksek sıcaklığı giriniz:" FontSize="14"/>
             <TextBox x:Name="txtTemperatureAdd2" VerticalContentAlignment="Center" Height="30" FontSize="14" FontStyle="Italic"/>
             <Label Content="Gerekli en düşük nem oranını giriniz:" FontSize="14"/>
-            <TextBox x:Name="txtHumidityAdd" VerticalContentAlignment="Center" Height="30" FontSize="14" FontStyle="Italic"/>
+            <TextBox x:Name="txtSoilMoistureAdd" VerticalContentAlignment="Center" Height="30" FontSize="14" FontStyle="Italic"/>
             <Label Content="Gerekli en yüksek nem oranını giriniz:" FontSize="14"/>
-            <TextBox x:Name="txtHumidityAdd2" VerticalContentAlignment="Center" Height="30" FontSize="14" FontStyle="Italic"/>
+            <TextBox x:Name="txtSoilMoistureAdd2" VerticalContentAlignment="Center" Height="30" FontSize="14" FontStyle="Italic"/>
             <Button Content="Ürün Ekle" Click="AddProduct_Click" Margin="0 10 0 0" Width="100" Height="40"/>
         </StackPanel>
     </Grid>
