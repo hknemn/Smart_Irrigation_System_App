@@ -22,8 +22,8 @@ namespace Smart_Irrigation_System.Pages
     public partial class Reports : Page
     {
         private ObservableCollection<Report>? allReports;
-        private string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/Databases/irrigation_report.sqlite";
-        //private string databasePath = "R:/Smart_Agriculture/Databases/irrigation_report.sqlite";
+        //private string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/Databases/irrigation_report.sqlite";
+        private string databasePath = "R:/Smart_Agriculture/Databases/irrigation_report.sqlite";
         public Reports()
         {
             InitializeComponent();
