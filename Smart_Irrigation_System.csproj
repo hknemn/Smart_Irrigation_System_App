@@ -9,6 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Pages\live_data_bg.png" />
+    <None Remove="Pages\weather_humidity,_weather_temperature,_soil_moisture_and_temperature_wallpaper._more_simple_and_minimal.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Databases\" />
     <Folder Include="Icons\" />
     <Folder Include="Background\" />
@@ -17,6 +22,11 @@
   <ItemGroup>
     <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Pages\live_data_bg.png" />
+    <Resource Include="Pages\weather_humidity,_weather_temperature,_soil_moisture_and_temperature_wallpaper._more_simple_and_minimal.png" />
   </ItemGroup>
 
 </Project>

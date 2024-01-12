@@ -15,13 +15,16 @@
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="0" Orientation="Vertical" Background="LightGray">
-            <Button x:Name="liveWeather" Content="Hava Durumu" FontSize="14" Click="liveWeather_Click" Height="50"/>
-            <Button x:Name="liveSensor" Content="Nem Değeri" FontSize="14" Click="liveSensor_Click" Height="50"/>
+        <StackPanel Grid.Column="0" Orientation="Vertical">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="/Pages/live_data_bg.png" TileMode="None" Stretch="UniformToFill"/>
+            </StackPanel.Background>
+            <Button x:Name="liveWeather" Content="Hava Durumu" FontSize="17" Click="liveWeather_Click" Height="85" Background="#FFD3CCC2" BorderBrush="#FF4C4C50" Opacity="0.85" FontWeight="Bold" Foreground="#FF090973"/>
+            <Button x:Name="liveSensor" Content="Nem ve Sıcaklık" FontSize="17" Click="liveSensor_Click" Height="85" Background="#FFD3CCC2" BorderBrush="#FF4C4C50" Opacity="0.85" FontWeight="Bold" Foreground="#FF090973"/>
         </StackPanel>
         <StackPanel x:Name="liveWeatherPanel" Grid.Column="1" Orientation="Vertical" Visibility="Collapsed" Margin="0">
-            <TextBlock Text="ANLIK HAVA DURUMU"  HorizontalAlignment="Center" FontSize="14"/>
-            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,10,0" Width="20" Height="20" Click="CloseButton_Click">
+            <TextBlock Text="ANLIK HAVA DURUMU"  HorizontalAlignment="Center" FontSize="20"/>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,20,0" Width="20" Height="20" Click="CloseButton_Click">
                 <Button.Template>
                     <ControlTemplate>
                         <Path Data="M 0,0 L 20,20 M 20,0 L 0,20" Stroke="Black" StrokeThickness="2"/>
@@ -49,10 +52,10 @@
                 <TextBlock x:Name="dateTextBlock" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" FontSize="16" VerticalAlignment="Center"/>
             </Grid>
 
-            <Grid Width="600" Height="400">
+            <Grid Width="600" Height="300">
                 <StackPanel HorizontalAlignment="Left" Width="300">
                     <gauges:Gauge360>
-                        <lvc:Gauge From="0" To="50" Value="{Binding WeatherTemperature}" Height="300" Width="290">
+                        <lvc:Gauge From="0" To="50" Value="{Binding WeatherTemperature}" Height="300" Width="300">
                             <lvc:Gauge.GaugeActiveFill>
                                 <LinearGradientBrush>
                                     <GradientStop Color="Yellow" Offset="0.0" />
@@ -67,7 +70,7 @@
 
                 <StackPanel HorizontalAlignment="Right" Width="300">
                     <gauges:Gauge360>
-                        <lvc:Gauge From="0" To="100" Value="{Binding WeatherHumidity}" Width="290" Height="300">
+                        <lvc:Gauge From="0" To="100" Value="{Binding WeatherHumidity}" Height="300" Width="300">
                             <lvc:Gauge.GaugeActiveFill>
                                 <LinearGradientBrush>
                                     <GradientStop Color="DeepSkyBlue" Offset="0.0" />
@@ -82,8 +85,8 @@
             </Grid>
         </StackPanel>
         <StackPanel x:Name="liveSensorPanel" Grid.Column="1" Orientation="Vertical" Visibility="Collapsed">
-            <TextBlock Text="ANLIK NEM DEĞERİ"  HorizontalAlignment="Center" FontSize="14"/>
-            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,10,0" Width="20" Height="20" Click="CloseButton_Click">
+            <TextBlock Text="ANLIK NEM DEĞERİ"  HorizontalAlignment="Center" FontSize="20"/>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,20,0" Width="20" Height="20" Click="CloseButton_Click">
                 <Button.Template>
                     <ControlTemplate>
                         <Path Data="M 0,0 L 20,20 M 20,0 L 0,20" Stroke="Black" StrokeThickness="2"/>
@@ -106,11 +109,11 @@
                 <Label Content="TARİH:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold"/>
                 <TextBlock x:Name="dateTxt" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" FontSize="16" VerticalAlignment="Center"/>
             </Grid>
-            
+
             <Grid Height="400" Width="600">
                 <StackPanel HorizontalAlignment="Left" Width="300">
                     <gauges:Gauge360>
-                        <lvc:Gauge From="0" To="100" Value="{Binding Temperature}" Width="290" Height="300">
+                        <lvc:Gauge From="0" To="100" Value="{Binding Temperature}" Width="300" Height="300">
                             <lvc:Gauge.GaugeActiveFill>
                                 <LinearGradientBrush>
                                     <GradientStop Color="Yellow" Offset="0.0" />
@@ -124,7 +127,7 @@
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Right" Width="300">
                     <gauges:Gauge360>
-                        <lvc:Gauge From="0" To="100" Value="{Binding SoilMoisture}" Width="290" Height="300">
+                        <lvc:Gauge From="0" To="100" Value="{Binding SoilMoisture}" Width="300" Height="300">
                             <lvc:Gauge.GaugeActiveFill>
                                 <LinearGradientBrush>
                                     <GradientStop Color="DeepSkyBlue" Offset="0.0" />
