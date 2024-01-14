@@ -56,21 +56,24 @@ namespace Smart_Irrigation_System.Pages
             {
                 connection.Open();
 
-                string query = "SELECT product_name, temperature, soil_moisture, date FROM product";
+                string query = "SELECT city_name, product_name, temperature, soil_moisture, date FROM product";
                 SQLiteCommand command = new SQLiteCommand(query, connection);
 
                 using (SQLiteDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        string product_name = reader.GetString(0);
-                        double temperature = reader.GetDouble(1);
-                        double soil_moisture = reader.GetDouble (2);
-                        string date = reader.GetString(3);
+                        string city_name = reader.GetString(0);
+                        string product_name = reader.GetString(1);
+                        double temperature = reader.GetDouble(2);
+                        double soil_moisture = reader.GetDouble(3);
+                        string date = reader.GetString(4);
                         if (liveData != null)
                         {
                             liveData.SoilMoisture = soil_moisture;
                             liveData.Temperature = temperature;
+
+                            cityNameProductTxt.Text = city_name;
                             productNameTxt.Text = product_name;
                             dateTxt.Text = date;
                         }
