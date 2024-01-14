@@ -22,8 +22,9 @@
             <Button x:Name="liveWeather" Content="Hava Durumu" FontSize="17" Click="liveWeather_Click" Height="85" Background="#FFD3CCC2" BorderBrush="#FF4C4C50" Opacity="0.85" FontWeight="Bold" Foreground="#FF090973"/>
             <Button x:Name="liveSensor" Content="Nem ve Sıcaklık" FontSize="17" Click="liveSensor_Click" Height="85" Background="#FFD3CCC2" BorderBrush="#FF4C4C50" Opacity="0.85" FontWeight="Bold" Foreground="#FF090973"/>
         </StackPanel>
-        <StackPanel x:Name="liveWeatherPanel" Grid.Column="1" Orientation="Vertical" Visibility="Collapsed" Margin="0">
-            <TextBlock Text="ANLIK HAVA DURUMU"  HorizontalAlignment="Center" FontSize="20"/>
+
+        <StackPanel x:Name="liveWeatherPanel" Grid.Column="1" Orientation="Vertical" Visibility="Visible" Margin="0">
+            <TextBlock Text="ANLIK HAVA DURUMU"  HorizontalAlignment="Center" FontSize="20" Margin="0 10 0 0"/>
             <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,20,0" Width="20" Height="20" Click="CloseButton_Click">
                 <Button.Template>
                     <ControlTemplate>
@@ -52,10 +53,10 @@
                 <TextBlock x:Name="dateTextBlock" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" FontSize="16" VerticalAlignment="Center"/>
             </Grid>
 
-            <Grid Width="600" Height="300">
-                <StackPanel HorizontalAlignment="Left" Width="300">
+            <Grid Width="850" Height="500" HorizontalAlignment="Stretch">
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Stretch">
                     <gauges:Gauge360>
-                        <lvc:Gauge From="0" To="50" Value="{Binding WeatherTemperature}" Height="300" Width="300">
+                        <lvc:Gauge From="0" To="50" Value="{Binding WeatherTemperature}" Height="500" Width="400">
                             <lvc:Gauge.GaugeActiveFill>
                                 <LinearGradientBrush>
                                     <GradientStop Color="Yellow" Offset="0.0" />
@@ -65,12 +66,12 @@
                             </lvc:Gauge.GaugeActiveFill>
                         </lvc:Gauge>
                     </gauges:Gauge360>
-                    <TextBlock Text="SICAKLIK (°C)" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="-50" FontSize="20"/>
+                    <TextBlock Text="SICAKLIK (°C)" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="-120" FontSize="20"/>
                 </StackPanel>
 
-                <StackPanel HorizontalAlignment="Right" Width="300">
+                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Stretch">
                     <gauges:Gauge360>
-                        <lvc:Gauge From="0" To="100" Value="{Binding WeatherHumidity}" Height="300" Width="300">
+                        <lvc:Gauge From="0" To="100" Value="{Binding WeatherHumidity}" Height="500" Width="400">
                             <lvc:Gauge.GaugeActiveFill>
                                 <LinearGradientBrush>
                                     <GradientStop Color="DeepSkyBlue" Offset="0.0" />
@@ -80,12 +81,13 @@
                             </lvc:Gauge.GaugeActiveFill>
                         </lvc:Gauge>
                     </gauges:Gauge360>
-                    <TextBlock Text="NEM (%)" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="-50" FontSize="20"/>
+                    <TextBlock Text="NEM (%)" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="-120" FontSize="20"/>
                 </StackPanel>
             </Grid>
         </StackPanel>
+
         <StackPanel x:Name="liveSensorPanel" Grid.Column="1" Orientation="Vertical" Visibility="Collapsed">
-            <TextBlock Text="ANLIK NEM DEĞERİ"  HorizontalAlignment="Center" FontSize="20"/>
+            <TextBlock Text="ANLIK SENSÖR DEĞERLERİ"  HorizontalAlignment="Center" FontSize="20" Margin="0 10 0 0"/>
             <Button HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,20,0" Width="20" Height="20" Click="CloseButton_Click">
                 <Button.Template>
                     <ControlTemplate>
@@ -97,23 +99,27 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Content="ÜRÜN:" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold"/>
-                <TextBlock x:Name="productNameTxt" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" FontSize="16" VerticalAlignment="Center"/>
+                <Label Content="ŞEHİR:" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold"/>
+                <TextBlock x:Name="cityNameProductTxt" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" FontSize="16" VerticalAlignment="Center"/>
+                
+                <Label Content="ÜRÜN:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold"/>
+                <TextBlock x:Name="productNameTxt" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" FontSize="16" VerticalAlignment="Center"/>
 
-                <Label Content="TARİH:" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold"/>
-                <TextBlock x:Name="dateTxt" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" FontSize="16" VerticalAlignment="Center"/>
+                <Label Content="TARİH:" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold"/>
+                <TextBlock x:Name="dateTxt" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" FontSize="16" VerticalAlignment="Center"/>
             </Grid>
 
-            <Grid Height="400" Width="600">
-                <StackPanel HorizontalAlignment="Left" Width="300">
+            <Grid Height="500" Width="850" HorizontalAlignment="Stretch">
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Stretch">
                     <gauges:Gauge360>
-                        <lvc:Gauge From="0" To="100" Value="{Binding Temperature}" Width="300" Height="300">
+                        <lvc:Gauge From="0" To="50" Value="{Binding Temperature}" Width="400" Height="500">
                             <lvc:Gauge.GaugeActiveFill>
                                 <LinearGradientBrush>
                                     <GradientStop Color="Yellow" Offset="0.0" />
@@ -123,11 +129,12 @@
                             </lvc:Gauge.GaugeActiveFill>
                         </lvc:Gauge>
                     </gauges:Gauge360>
-                    <TextBlock Text="SICAKLIK (°C)" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="-50" FontSize="20"/>
+                    <TextBlock Text="SICAKLIK (°C)" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="-120" FontSize="20"/>
                 </StackPanel>
-                <StackPanel HorizontalAlignment="Right" Width="300">
+                
+                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Stretch">
                     <gauges:Gauge360>
-                        <lvc:Gauge From="0" To="100" Value="{Binding SoilMoisture}" Width="300" Height="300">
+                        <lvc:Gauge From="0" To="100" Value="{Binding SoilMoisture}" Width="400" Height="500">
                             <lvc:Gauge.GaugeActiveFill>
                                 <LinearGradientBrush>
                                     <GradientStop Color="DeepSkyBlue" Offset="0.0" />
@@ -137,7 +144,7 @@
                             </lvc:Gauge.GaugeActiveFill>
                         </lvc:Gauge>
                     </gauges:Gauge360>
-                    <TextBlock Text="NEM (%)" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="-50" FontSize="20"/>
+                    <TextBlock Text="NEM (%)" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="-120" FontSize="20"/>
                 </StackPanel>
             </Grid>
         </StackPanel>

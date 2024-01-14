@@ -8,7 +8,7 @@
       Title="Reports">
 
     <Grid>
-        <ListView x:Name="reportsListView" Margin="0,0,0,50" BorderBrush="{x:Null}" Background="Transparent" Opacity="0.8">
+        <ListView x:Name="reportsListView" Margin="0,0,0,55" BorderBrush="{x:Null}" Background="Transparent" Opacity="0.8">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="150">
@@ -125,6 +125,6 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
-        <Button x:Name="refreshBtn" Content="YENİLE" FontSize="20" Height="50" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Click="refreshBtn_Click" BorderBrush="#FF5A4F4F"/>
+        <Button x:Name="refreshBtn" Content="YENİLE" FontSize="20" Height="50" Margin="0 0 0 5" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Click="refreshBtn_Click" Background="Transparent" Opacity="0.8" BorderBrush="#FF678E54" Foreground="#FF678E54" BorderThickness="1.5"/>
     </Grid>
 </Page>

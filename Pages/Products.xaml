@@ -13,12 +13,15 @@
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="0" Orientation="Vertical" Background="LightGray">
-            <Label Content="Aranacak ürünü giriniz:" VerticalContentAlignment="Center" FontSize="14"/>
-            <TextBox x:Name="searchTextBox" Width="200" VerticalContentAlignment="Center" FontSize="14" Margin="0,10,0,10" Height="30" TextChanged="SearchTextBox_TextChanged"/>
-            <Button x:Name="createProductButton" Content="Ürün Ekle" Width="200" FontSize="15" Margin="0,10" Height="50" Click="createProductButton_Click"/>
-            <Button x:Name="deleteProductButton" Content="Ürün Sil" Width="200" FontSize="15" Margin="0,10" Height="50" Click="deleteProductButton_Click"/>
-            <Button x:Name="updateProductButton" Content="Ürün Güncelle" Width="200" FontSize="15" Margin="0,10" Height="50" Click="updateProductButton_Click"/>
+        <StackPanel Grid.Column="0" Orientation="Vertical">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="/Pages/crud_bg.png" Stretch="Fill"/>
+            </StackPanel.Background>
+            <Label Content="Aranacak ürünü giriniz:" VerticalContentAlignment="Center" FontSize="15" FontWeight="SemiBold" Height="40"/>
+            <TextBox x:Name="searchTextBox" VerticalContentAlignment="Center" FontSize="15" Height="40" TextChanged="SearchTextBox_TextChanged" Background="Transparent" Opacity="0.8" FontStyle="Italic" BorderBrush="#5A4F4F" BorderThickness="1"/>
+            <Button x:Name="createProductButton" Content="Ürün Ekle" FontSize="15" Height="50" FontWeight="SemiBold"  Margin="0 530 0 0" Click="createProductButton_Click" Background="Transparent" Opacity="0.8" BorderBrush="#FF287FA3" Foreground="#FF287FA3" BorderThickness="1.5"/>
+            <Button x:Name="deleteProductButton" Content="Ürün Sil" FontSize="15" Height="50" FontWeight="SemiBold" Margin="0 10 0 0" Click="deleteProductButton_Click" Background="Transparent" Opacity="0.8" BorderBrush="#FFD84937" Foreground="#FFD84937" BorderThickness="1.5"/>
+            <Button x:Name="updateProductButton" Content="Ürün Güncelle" FontSize="15" Height="50" FontWeight="SemiBold" Margin="0 10 0 0" Click="updateProductButton_Click" Background="Transparent" Opacity="0.8" BorderBrush="#FF678E54" Foreground="#FF678E54" BorderThickness="1.5"/>
         </StackPanel>
 
         <StackPanel x:Name="productList" Grid.Column="1" Orientation="Vertical" Visibility="Visible">

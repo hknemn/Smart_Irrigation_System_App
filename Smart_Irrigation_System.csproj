@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Pages\crud_bg.png" />
     <None Remove="Pages\live_data_bg.png" />
   </ItemGroup>
 
@@ -24,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Pages\crud_bg.png" />
     <Resource Include="Pages\live_data_bg.png" />
   </ItemGroup>
 

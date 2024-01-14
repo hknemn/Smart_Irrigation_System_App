@@ -9,7 +9,7 @@
     <Grid Margin="50">
         <Label Content=" GİRİŞ YAP" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center"/>
         <Label Content="Kullanıcı Adı:" Width="500" VerticalAlignment="Top" Margin="100,53,100,0" FontWeight="Bold" FontSize="15" Height="30"/>
-        <TextBox x:Name="txtUsername" Width="500" BorderBrush="#5A4F4F" BorderThickness="2" VerticalAlignment="Top" Margin="100,88,100,0" Height="35" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="txtUsername" Width="500" BorderBrush="#5A4F4F" BorderThickness="2" VerticalAlignment="Top" Margin="100,88,100,0" Height="35" VerticalContentAlignment="Center" FontSize="15"/>
         <Label Content="Şifre:" Width="500" VerticalAlignment="Top" Margin="100,128,100,0" FontWeight="Bold" FontSize="15" Height="30"/>
         <PasswordBox x:Name="txtPassword" Width="500" BorderBrush="#5A4F4F" BorderThickness="2" VerticalAlignment="Center" Margin="100,0,100,0" Height="34" VerticalContentAlignment="Center"/>
         <Button Content="Giriş Yap" VerticalAlignment="Top" HorizontalAlignment="Center" Width="120" Margin="0,225,0,0" Click="btnLogin_Click" FontSize="15">
