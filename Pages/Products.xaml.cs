@@ -23,8 +23,8 @@ namespace Smart_Irrigation_System.Pages
     {
         private ObservableCollection<Product>? allProducts;
         private Product? selectedProduct = null;
-        private string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/Databases/products.sqlite";
-        //private string databasePath = "R:/Smart_Agriculture/Databases/products.sqlite"; 
+        //private string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/Databases/products.sqlite";
+        private string databasePath = "R:/Smart_Agriculture/Databases/products.sqlite"; 
 
         public Products()
         {
@@ -59,6 +59,7 @@ namespace Smart_Irrigation_System.Pages
                         }
                     }
                 }
+                connection.Close();
             }
             productsListView.ItemsSource = allProducts;
         }
@@ -181,6 +182,7 @@ namespace Smart_Irrigation_System.Pages
                         txtProductNameAdd.Text = "";
                     }
                 }
+                connection.Close();
             }
         }
         private void updateProductButton_Click(object sender, RoutedEventArgs e)
@@ -213,13 +215,13 @@ namespace Smart_Irrigation_System.Pages
         public void DeleteProduct(int productId)
         {
             string connectionString = $"Data Source={databasePath};Version=3;";
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
-                conn.Open();
+                connection.Open();
 
                 string sql = "DELETE FROM products WHERE Id = @ProductId";
 
-                using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                using (SQLiteCommand cmd = new SQLiteCommand(sql, connection))
                 {
                     cmd.Parameters.AddWithValue("@ProductId", productId);
                     int result = cmd.ExecuteNonQuery();
@@ -232,20 +234,19 @@ namespace Smart_Irrigation_System.Pages
                         MessageBox.Show("ÜRÜN SİLİNİRKEN BİR HATA OLUŞTU!", "UYARI", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
                 }
-
-                conn.Close();
+                connection.Close();
             }
         }
         public void UpdateProduct(Product updatedProduct)
         {
             string connectionString = $"Data Source={databasePath};Version=3;";
-            using (SQLiteConnection conn = new SQLiteConnection(connectionString))
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
             {
-                conn.Open();
+                connection.Open();
 
                 string sql = @"UPDATE products SET name = @Name, min_temperature = @Min_Temperature, max_temperature = @Max_Temperature, min_soilMoisture = @Min_SoilMoisture, max_soilMoisture = @Max_SoilMoisture WHERE id = @Id";
 
-                using (SQLiteCommand cmd = new SQLiteCommand(sql, conn))
+                using (SQLiteCommand cmd = new SQLiteCommand(sql, connection))
                 {
                     cmd.Parameters.AddWithValue("@Name", updatedProduct.Name);
                     cmd.Parameters.AddWithValue("@Min_Temperature", updatedProduct.Min_Temperature);
@@ -264,8 +265,7 @@ namespace Smart_Irrigation_System.Pages
                         MessageBox.Show("ÜRÜN GÜNCELLENİRKEN BİR HATA OLUŞTU!", "UYARI", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
                 }
-
-                conn.Close();
+                connection.Close();
             }
         }
 

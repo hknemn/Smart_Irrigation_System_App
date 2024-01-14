@@ -13,7 +13,7 @@
         <StackPanel Background="#5A4F4F" Orientation="Horizontal" VerticalAlignment="Top" Height="60">
             <Button Background="#5A4F4F" Content="ANA SAYFA" Click="NavigateToHomePage" Width="160" FontSize="15" FontWeight="Bold" Foreground="#FFFFFF"/>
             <Button Background="#5A4F4F" Content="ÜRÜNLER" Click="NavigateToProducts" Width="160" FontSize="15" FontWeight="Bold" Foreground="#FFFFFF"/>
-            <Button Background="#5A4F4F" Content="ANLIK VERİ" Click="NavigateToLiveData" Width="160" FontSize="15" FontWeight="Bold" Foreground="#FFFFFF"/>
+            <Button Background="#5A4F4F" Content="VERİLER" Click="NavigateToLiveData" Width="160" FontSize="15" FontWeight="Bold" Foreground="#FFFFFF"/>
             <Button Background="#5A4F4F" Content="RAPORLAR" Click="NavigateToReports" Width="160" FontSize="15" FontWeight="Bold" Foreground="#FFFFFF"/>
             <Button Background="#5A4F4F" Content="SENSÖR YAPILANDIRMA" Click="NavigateToSensorConfigure" Width="200" FontSize="15" FontWeight="Bold" Foreground="#FFFFFF"/>
         </StackPanel>

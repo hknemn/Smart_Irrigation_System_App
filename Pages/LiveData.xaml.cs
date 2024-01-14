@@ -23,10 +23,10 @@ namespace Smart_Irrigation_System.Pages
     public partial class LiveData : Page
     {
         private ViewModel.LiveData? liveData;
-        private string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/Databases/live_soilMoisture_temperature.sqlite";
-        //private string databasePath = "R:/Smart_Agriculture/Databases/live_soilMoisture_temperature.sqlite";  
-        private string databasePath2 = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/Databases/live_weather.sqlite";
-        //private string databasePath2 = "R:/Smart_Agriculture/Databases/live_weather.sqlite";  
+        //private string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/Databases/live_soilMoisture_temperature.sqlite";
+        private string databasePath = "R:/Smart_Agriculture/Databases/live_soilMoisture_temperature.sqlite";  
+        //private string databasePath2 = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/Databases/live_weather.sqlite";
+        private string databasePath2 = "R:/Smart_Agriculture/Databases/live_weather.sqlite";  
         public LiveData()
         {
             InitializeComponent();

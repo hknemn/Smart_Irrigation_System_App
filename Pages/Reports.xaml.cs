@@ -22,8 +22,8 @@ namespace Smart_Irrigation_System.Pages
     public partial class Reports : Page
     {
         private ObservableCollection<Report>? allReports;
-        private string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/Databases/irrigation_report.sqlite";
-        //private string databasePath = "R:/Smart_Agriculture/Databases/irrigation_report.sqlite";
+        //private string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/Databases/irrigation_report.sqlite";
+        private string databasePath = "R:/Smart_Agriculture/Databases/irrigation_report.sqlite";
         public Reports()
         {
             InitializeComponent();
@@ -58,8 +58,8 @@ namespace Smart_Irrigation_System.Pages
 
                             allReports.Add(new Report { Id = id, City_Name = city_name, Product_Name = product_name, Before_Irrigation_Temperature = before_irrigation_temperature, After_Irrigation_Temperature = after_irrigation_temperature, Before_Irrigation_SoilMoisture = before_irrigation_soilMoisture, After_Irrigation_SoilMoisture = after_irrigation_soilMoisture, Description = description, Date = date });
                         }
-                        connection.Close();
                     }
+                    connection.Close();
                 }
             }
             reportsListView.ItemsSource = allReports;
