@@ -18,9 +18,6 @@ using System.Windows.Shapes;
 
 namespace Smart_Irrigation_System.Pages
 {
-    /// <summary>
-    /// Interaction logic for Home.xaml
-    /// </summary>
     public partial class Home : Page
     {
         public Home()

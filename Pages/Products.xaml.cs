@@ -23,8 +23,8 @@ namespace Smart_Irrigation_System.Pages
     {
         private ObservableCollection<Product>? allProducts;
         private Product? selectedProduct = null;
-        //private string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/Databases/products.sqlite";
-        private string databasePath = "R:/Smart_Agriculture/Databases/products.sqlite"; 
+        private string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/Databases/products.sqlite";
+        //private string databasePath = "R:/Smart_Agriculture/Databases/products.sqlite"; 
 
         public Products()
         {

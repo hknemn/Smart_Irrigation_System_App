@@ -22,10 +22,10 @@ namespace Smart_Irrigation_System.Pages
     public partial class SensorConfigure : Page
     {
         public ObservableCollection<string> ProductNames { get; set; } = new ObservableCollection<string>();
-        //private string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/Databases/products.sqlite";
-        private string databasePath = "R:/Smart_Agriculture/Databases/products.sqlite";
-        //private string databasePath2 = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/Databases/selected_items.sqlite";
-        private string databasePath2 = "R:/Smart_Agriculture/Databases/selected_items.sqlite";    
+        private string databasePath = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/Databases/products.sqlite";
+        //private string databasePath = "R:/Smart_Agriculture/Databases/products.sqlite";
+        private string databasePath2 = "C:/Users/hknem/OneDrive/Masaüstü/shared/Smart_Agriculture/Databases/selected_items.sqlite";
+        //private string databasePath2 = "R:/Smart_Agriculture/Databases/selected_items.sqlite";    
 
         public string? SelectedProductName { get; set; }
 

@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <None Remove="Pages\live_data_bg.png" />
-    <None Remove="Pages\weather_humidity,_weather_temperature,_soil_moisture_and_temperature_wallpaper._more_simple_and_minimal.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,7 +25,6 @@
 
   <ItemGroup>
     <Resource Include="Pages\live_data_bg.png" />
-    <Resource Include="Pages\weather_humidity,_weather_temperature,_soil_moisture_and_temperature_wallpaper._more_simple_and_minimal.png" />
   </ItemGroup>
 
 </Project>

@@ -8,7 +8,7 @@
       Title="Reports">
 
     <Grid>
-        <ListView x:Name="reportsListView">
+        <ListView x:Name="reportsListView" Margin="0,0,0,50" BorderBrush="{x:Null}" Background="Transparent" Opacity="0.8">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Width="150">
@@ -75,7 +75,7 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    
+
                     <GridViewColumn Width="150">
                         <GridViewColumn.HeaderTemplate>
                             <DataTemplate>
@@ -116,6 +116,15 @@
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                    <Setter Property="BorderBrush" Value="#5A4F4F"/>
+                    <Setter Property="Height" Value="50"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </ListView.ItemContainerStyle>
         </ListView>
+        <Button x:Name="refreshBtn" Content="YENİLE" FontSize="20" Height="50" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" Click="refreshBtn_Click" BorderBrush="#FF5A4F4F"/>
     </Grid>
 </Page>
