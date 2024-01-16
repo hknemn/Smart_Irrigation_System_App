@@ -36,7 +36,7 @@
                             </GridViewColumn.HeaderTemplate>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Name}" FontSize="16"/>
+                                    <TextBlock Text="{Binding Name}" FontSize="16" FontWeight="DemiBold"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -49,7 +49,7 @@
                             </GridViewColumn.HeaderTemplate>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Min_Temperature}" FontSize="16"/>
+                                    <TextBlock Text="{Binding Min_Temperature}" FontSize="16" FontWeight="DemiBold"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -62,7 +62,7 @@
                             </GridViewColumn.HeaderTemplate>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Max_Temperature}" FontSize="16"/>
+                                    <TextBlock Text="{Binding Max_Temperature}" FontSize="16" FontWeight="DemiBold"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -75,7 +75,7 @@
                             </GridViewColumn.HeaderTemplate>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Min_SoilMoisture}" FontSize="16"/>
+                                    <TextBlock Text="{Binding Min_SoilMoisture}" FontSize="16" FontWeight="DemiBold"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -88,7 +88,7 @@
                             </GridViewColumn.HeaderTemplate>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Max_SoilMoisture}" FontSize="16"/>
+                                    <TextBlock Text="{Binding Max_SoilMoisture}" FontSize="16" FontWeight="DemiBold"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>

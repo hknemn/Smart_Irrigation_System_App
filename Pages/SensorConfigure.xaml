@@ -9,11 +9,11 @@
 
     <Grid>
         <StackPanel Orientation="Vertical">
-            <Label Content="Mevcut Sensör Yapılandırması" FontSize="15" VerticalAlignment="Top" Height="30" HorizontalAlignment="Center"/>
-            <ListView x:Name="dataListView" Height="100" VerticalAlignment="Top" Width="410" HorizontalAlignment="Center">
+            <Label Content="Mevcut Sensör Yapılandırması" FontSize="18" FontWeight="SemiBold" VerticalAlignment="Top" Height="50" HorizontalAlignment="Center" VerticalContentAlignment="Center"/>
+            <ListView x:Name="dataListView" Height="80" VerticalAlignment="Top" Width="410" HorizontalAlignment="Center" BorderBrush="#FF287FA3" Background="Transparent" Opacity="0.8">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Width="200">
+                        <GridViewColumn Width="201">
                             <GridViewColumn.HeaderTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="Şehir" FontSize="18"/>
@@ -21,12 +21,12 @@
                             </GridViewColumn.HeaderTemplate>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding City_Name}" FontSize="16"/>
+                                    <TextBlock Text="{Binding City_Name}" FontSize="16" FontWeight="DemiBold"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Width="200">
+                        <GridViewColumn Width="201">
                             <GridViewColumn.HeaderTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="Ürün" FontSize="18"/>
@@ -34,21 +34,29 @@
                             </GridViewColumn.HeaderTemplate>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Product_Name}" FontSize="16"/>
+                                    <TextBlock Text="{Binding Product_Name}" FontSize="16" FontWeight="DemiBold"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
                     </GridView>
                 </ListView.View>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                        <Setter Property="Height" Value="50"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
             </ListView>
 
-            <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 20 0 0">
-                <TextBox x:Name="cityNameTextBox" Width="230" Height="35" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="15"/>
-                <Label x:Name="cityNameLabel" Content="Şehir giriniz (örn: Mamak, Ankara)" Width="230" Margin="0,-25,0,40" FontSize="15"/>
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 50 0 0">
+                <TextBox x:Name="cityNameTextBox" Width="240" Height="35" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="16" Background="Transparent" Opacity="0.8" FontStyle="Italic" FontWeight="SemiBold"/>
+                <Label x:Name="cityNameLabel" Content="Şehir giriniz (örn: Mamak, Ankara)" Width="250" Margin="0,-25,0,40" FontSize="16"/>
             </Grid>
-            
-            <ComboBox x:Name="productNameComboBox" Width="200" Height="30" ItemsSource="{Binding ProductNames}" DropDownOpened="productNameComboBox_DropDownOpened"/>
-            <Button x:Name="configureButton" Content="Yapılandır" Height="50" Click="configureButton_Click" FontSize="15"/>
+
+            <ComboBox x:Name="productNameComboBox" Width="200" Height="50" FontSize="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" ItemsSource="{Binding ProductNames}" DropDownOpened="productNameComboBox_DropDownOpened" FontWeight="SemiBold" FontStyle="Italic"/>
+
         </StackPanel>
+        <Button x:Name="configureButton" Content="YAPILANDIR" FontSize="20" Height="50" Margin="0 0 0 5" Click="configureButton_Click" VerticalAlignment="Bottom"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  FontWeight="Bold" Background="Transparent" Opacity="0.8" BorderBrush="#FF287FA3" Foreground="#FF287FA3" BorderThickness="1.5"/>
     </Grid>
 </Page>

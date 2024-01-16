@@ -19,7 +19,7 @@
                         </GridViewColumn.HeaderTemplate>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding City_Name}" FontSize="16"/>
+                                <TextBlock Text="{Binding City_Name}" FontSize="16" FontWeight="DemiBold"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -32,7 +32,7 @@
                         </GridViewColumn.HeaderTemplate>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Product_Name}" FontSize="16"/>
+                                <TextBlock Text="{Binding Product_Name}" FontSize="16" FontWeight="DemiBold"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -45,7 +45,7 @@
                         </GridViewColumn.HeaderTemplate>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Before_Irrigation_Temperature}" FontSize="16"/>
+                                <TextBlock Text="{Binding Before_Irrigation_Temperature}" FontSize="16" FontWeight="DemiBold"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -58,7 +58,7 @@
                         </GridViewColumn.HeaderTemplate>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding After_Irrigation_Temperature}" FontSize="16"/>
+                                <TextBlock Text="{Binding After_Irrigation_Temperature}" FontSize="16" FontWeight="DemiBold"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -71,7 +71,7 @@
                         </GridViewColumn.HeaderTemplate>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Before_Irrigation_SoilMoisture}" FontSize="16"/>
+                                <TextBlock Text="{Binding Before_Irrigation_SoilMoisture}" FontSize="16" FontWeight="DemiBold"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -84,7 +84,7 @@
                         </GridViewColumn.HeaderTemplate>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding After_Irrigation_SoilMoisture}" FontSize="16"/>
+                                <TextBlock Text="{Binding After_Irrigation_SoilMoisture}" FontSize="16" FontWeight="DemiBold"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -97,7 +97,7 @@
                         </GridViewColumn.HeaderTemplate>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Description}" FontSize="16"/>
+                                <TextBlock Text="{Binding Description}" FontSize="16" FontWeight="DemiBold"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -110,7 +110,7 @@
                         </GridViewColumn.HeaderTemplate>
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Date}" FontSize="16"/>
+                                <TextBlock Text="{Binding Date}" FontSize="16" FontWeight="DemiBold"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
