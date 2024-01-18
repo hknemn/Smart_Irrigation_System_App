@@ -9,7 +9,12 @@
     Title="Home">
 
     <Grid>
-
+        <Border Opacity="0.75">
+            <Border.Background>
+                <ImageBrush ImageSource="/Pages/smart_irrigation_system_using_sensor,_as_wallpaper.png" Stretch="UniformToFill"/>
+            </Border.Background>
+        </Border>
+        
     </Grid>
 
 </Page>

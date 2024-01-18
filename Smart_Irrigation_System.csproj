@@ -11,6 +11,7 @@
   <ItemGroup>
     <None Remove="Pages\crud_bg.png" />
     <None Remove="Pages\live_data_bg.png" />
+    <None Remove="Pages\smart_irrigation_system_using_sensor,_as_wallpaper.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +29,7 @@
   <ItemGroup>
     <Resource Include="Pages\crud_bg.png" />
     <Resource Include="Pages\live_data_bg.png" />
+    <Resource Include="Pages\smart_irrigation_system_using_sensor,_as_wallpaper.png" />
   </ItemGroup>
 
 </Project>
